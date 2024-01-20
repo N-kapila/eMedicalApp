@@ -36,11 +36,11 @@ const LargeTextField = ({ placeholder, value, onChange }) => {
   );
 };
 
-const SelectTextField = ({ options, value, onChange }) => {
+const SelectTextField = ({ options, value, onChange, placeholder }) => {
   return (
-    <select value={value} onChange={onChange}>
+    <select value={value} onChange={onChange} style={{ width: "200px" }}>
       <option value="" disabled hidden>
-        Select your choice
+        {placeholder}
       </option>
       {options.map((option) => (
         <option key={option.value} value={option.value}>
