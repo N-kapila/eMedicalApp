@@ -4,8 +4,18 @@ import { useState } from "react";
 import { FaUser } from "react-icons/fa";
 
 function DoctorRegister() {
+  const [profilePic, setProfilePic] = useState(null);
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+      setProfilePic(URL.createObjectURL(file));
+    }
+  };
+
   return (
-    <div style={{ display: "flex", height: "100%" }}>
+    <div style={{ display: "flex", height: "100%", paddingBottom: 20 }}>
       <div
         style={{
           justifyContent: "center",
@@ -107,16 +117,42 @@ function DoctorRegister() {
             alignItems: "center",
           }}
         >
-          <div style={{ flex: 1, paddingLeft: 50 }}>
+          <div style={{ flex: 1 }}>
             <div
               style={{
-                alignItems: "flex-start",
+                alignItems: "center",
                 display: "flex",
                 flexDirection: "column",
                 paddingLeft: 20,
               }}
             >
-              {/* pofile pic */}
+              {profilePic && (
+                <div>
+                  <div style={imageContainerStyle}>
+                    <img
+                      src={profilePic}
+                      alt="Profile"
+                      style={circleImageStyle}
+                    />
+                  </div>
+                </div>
+              )}
+              <div
+                style={{
+                  border: "1px solid black",
+                  padding: "2px",
+                  borderRadius: "5%",
+                }}
+              >
+                <input
+                  type="file"
+                  id="fileInput"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  style={{ display: "none" }}
+                />
+                <label htmlFor="fileInput">Choose profile picture</label>
+              </div>
             </div>
           </div>
 
@@ -148,5 +184,20 @@ function DoctorRegister() {
     </div>
   );
 }
+
+const imageContainerStyle = {
+  width: "150px",
+  height: "150px",
+  overflow: "hidden",
+  borderRadius: "50%",
+  padding: 20,
+};
+
+const circleImageStyle = {
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+  borderRadius: "50%",
+};
 
 export default DoctorRegister;
