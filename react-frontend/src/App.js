@@ -1,15 +1,13 @@
 import React from "react";
 import "./App.css";
-import DoctorRegister from "./Pages/DoctorRegister";
+import { BrowserRouter as Router } from "react-router-dom";
+import AppRoutes from "./routes/Routes";
 
 function App() {
   return (
-    <div className="App">
-      {/* <h1 style={{ color: "var(--primary-color)" }}>
-        Welcome to the eMedical App
-      </h1> */}
-      <DoctorRegister />
-    </div>
+    <Router>
+      <AppRoutes />
+    </Router>
   );
 }
 
