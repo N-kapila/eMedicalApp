@@ -54,6 +54,7 @@
 
   .containers {
     display: flex;
+   
   }
   
   .containers > div {
@@ -64,6 +65,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    margin-top: 50px;
   }
   
   .profile-pic-container {
@@ -80,6 +82,7 @@
     object-fit: cover;
     border-radius: 50%;
   }
+
   
   .button-section {
     display: flex;
@@ -108,8 +111,20 @@
   }
   
 
+  @media screen and (max-width: 1366px) {
+    .container-one {
+      display: none;
+    }
+
+    .container-two{
+      display: flex;
+      width: 100%;
+    }
+
+  }
   
-  @media screen and (max-width: 768px) {
+  /* 768px is standard point */
+  @media screen and (max-width: 952px) {
     .container {
       flex-direction: column;
     }
