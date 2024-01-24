@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import "./TextFields.css"; // Import the CSS file
 
 const SmallTextField = ({ placeholder, value, onChange }) => {
   return (
@@ -8,13 +9,7 @@ const SmallTextField = ({ placeholder, value, onChange }) => {
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      style={{
-        width: "100px",
-        height: "25px",
-        backgroundColor: "#EEEEEE",
-        borderRadius: "5px",
-        border: "0",
-      }}
+      className="small-text-field"
     />
   );
 };
@@ -26,14 +21,7 @@ const MediumTextField = ({ placeholder, value, onChange }) => {
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      style={{
-        width: "200px",
-        height: "25px",
-        backgroundColor: "#EEEEEE",
-        borderRadius: "5px",
-        border: "0",
-        padding: 5,
-      }}
+      className="medium-text-field"
     />
   );
 };
@@ -45,14 +33,7 @@ const LargeTextField = ({ placeholder, value, onChange }) => {
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      style={{
-        width: "400px",
-        height: "20px",
-        backgroundColor: "#EEEEEE",
-        borderRadius: "10px",
-        border: "0",
-        padding: 10,
-      }}
+      className="large-text-field"
     />
   );
 };
@@ -65,32 +46,15 @@ const PasswordInput = ({ placeholder, value, onChange }) => {
   };
 
   return (
-    <div style={{ position: "relative" }}>
+    <div className="password-input-container">
       <input
         type={showPassword ? "text" : "password"}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        style={{
-          width: "400px",
-          height: "20px",
-          backgroundColor: "#EEEEEE",
-          borderRadius: "10px",
-          border: "0",
-          padding: 10,
-          marginBottom: "10px",
-        }}
+        className="password-input"
       />
-      <span
-        style={{
-          position: "absolute",
-          top: "50%",
-          right: "10px",
-          transform: "translateY(-50%)",
-          cursor: "pointer",
-        }}
-        onClick={toggleShowPassword}
-      >
+      <span className="password-toggle" onClick={toggleShowPassword}>
         {showPassword ? <FaEye /> : <FaEyeSlash />}
       </span>
     </div>
@@ -99,7 +63,7 @@ const PasswordInput = ({ placeholder, value, onChange }) => {
 
 const SelectTextField = ({ options, value, onChange, placeholder }) => {
   return (
-    <select value={value} onChange={onChange} style={{ width: "200px" }}>
+    <select value={value} onChange={onChange} className="select-text-field">
       <option value="" disabled hidden>
         {placeholder}
       </option>
