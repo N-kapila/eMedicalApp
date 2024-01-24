@@ -21,7 +21,7 @@ function DoctorRegister() {
       </div>
 
       <div className="container-two">
-        <div className="signin-header">
+        <div className="signup-header">
           <h4 style={{ marginRight: 5 }}>Already have an account?</h4>
           <a href="#">Sign in</a>
         </div>

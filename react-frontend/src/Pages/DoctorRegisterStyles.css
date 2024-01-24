@@ -20,7 +20,7 @@
     border-left: 1px solid #ccc;
   }
 
-  .signin-header{
+  .signup-header{
     display: flex;
     justify-content:flex-end;
     align-items: center;
