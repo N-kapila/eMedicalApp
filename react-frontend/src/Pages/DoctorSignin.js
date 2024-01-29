@@ -20,9 +20,9 @@ function DoctorSignin() {
       <div className="signin-container-two">
         <div className="signin-header-link">
           <h3 className="create-account-heading">Create an account?</h3>
-          <a className="create-account-heading" href="#">
+          <Link className="create-account-heading" to="/doctor-register">
             Sign up
-          </a>
+          </Link>
         </div>
 
         <div className="signin-body">

@@ -2,6 +2,7 @@ import img1 from "../assets/image1.png";
 import { LargeTextField, PasswordInput } from "../Components/Textfeilds";
 import { useState } from "react";
 import "./DoctorRegisterStyles.css";
+import { Link } from "react-router-dom";
 
 function DoctorRegister() {
   const [profilePic, setProfilePic] = useState(null);
@@ -23,7 +24,7 @@ function DoctorRegister() {
       <div className="container-two">
         <div className="signup-header">
           <h4 style={{ marginRight: 5 }}>Already have an account?</h4>
-          <a href="#">Sign in</a>
+          <Link to="/doctor-signin">Sign in</Link>
         </div>
 
         <div className="header">
