@@ -27,7 +27,7 @@
 }
 
 @media screen and (max-width: 1366px) {
-   
+  
     .patient-container-one{
         width: 100%;
         padding-left: 50px;
@@ -48,7 +48,7 @@
 
     .patient-container-one{
         width: 100%;
-        padding-left: 40px;
+        padding-left: 0;
     }
     
   }

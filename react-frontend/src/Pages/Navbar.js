@@ -16,6 +16,10 @@ function Navbar() {
       <button className="toggle-nav-btn" onClick={toggleNavVisibility}>
         &#9776; {/* Unicode for the hamburger icon */}
       </button>
+      <div
+        className={`overlay ${isNavVisible ? "visible" : ""}`}
+        onClick={toggleNavVisibility}
+      ></div>
 
       <div className={`navbar-container-one ${isNavVisible ? "visible" : ""}`}>
         <h3 className="doctor-details">Dr: xxxxxx</h3>
@@ -23,7 +27,7 @@ function Navbar() {
       </div>
 
       <div className={`navbar-container-two ${isNavVisible ? "visible" : ""}`}>
-        <Link to="/" className="nav-link">
+        <Link to="/dasboard" className="nav-link">
           <FaHome />
           Dashboard
         </Link>
