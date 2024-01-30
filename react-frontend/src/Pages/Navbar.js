@@ -31,7 +31,7 @@ function Navbar() {
           <FaUser />
           My Profile
         </Link>
-        <Link to="/registration" className="nav-link">
+        <Link to="/patient-register" className="nav-link">
           <FaClipboardList />
           Patient Registration
         </Link>
