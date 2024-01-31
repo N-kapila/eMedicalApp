@@ -1,6 +1,15 @@
 .register-patient{
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    
+}
+
+.register-patient h1{
     color: var(--primary-color);
+    font-size:xxx-large;
 }
 
 .patient-container{
@@ -25,6 +34,9 @@
     border: 0;
     border-radius: 10px;
 }
+.register-button:hover{
+    background-color: #903e00; 
+  }
 
 @media screen and (max-width: 1366px) {
   
@@ -35,11 +47,11 @@
    
   }
   
-
   @media screen and (max-width: 768px) {
 
     .register-patient{
         display: flex;
+        align-items: center;
         justify-content: center;
     }
     .patient-container {

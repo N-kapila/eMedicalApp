@@ -3,6 +3,7 @@ import "./Navbar.css";
 import { FaHome, FaUser, FaClipboardList, FaList } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import userimg from "../assets/user.png";
 
 function Navbar() {
   const [isNavVisible, setIsNavVisible] = useState(false);
@@ -22,6 +23,7 @@ function Navbar() {
       ></div>
 
       <div className={`navbar-container-one ${isNavVisible ? "visible" : ""}`}>
+        <img className="nav-image" src={userimg} alt="" />
         <h3 className="doctor-details">Dr: xxxxxx</h3>
         <h3 className="doctor-details">ID: 12345678</h3>
       </div>
@@ -31,7 +33,7 @@ function Navbar() {
           <FaHome />
           Dashboard
         </Link>
-        <Link to="/profile" className="nav-link">
+        <Link to="/doctor-profile" className="nav-link">
           <FaUser />
           My Profile
         </Link>

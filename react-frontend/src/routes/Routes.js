@@ -28,10 +28,12 @@ function AppRoutes() {
       <Route
         path="/doctor-profile"
         element={
-          <>
+          <div style={{ display: "flex" }}>
             <Navbar />
-            <DoctorProfile />
-          </>
+            <div style={{ flex: 1, padding: "20px" }}>
+              <DoctorProfile />
+            </div>
+          </div>
         }
       />
       <Route path="*" element={<ErrorPage />} />

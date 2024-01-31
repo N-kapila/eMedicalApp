@@ -18,10 +18,8 @@ function PatientRegister() {
     setSelectedDisease(e.target.value);
   };
   return (
-    <div>
-      <div className="register-patient">
-        <h1>Register Patient</h1>
-      </div>
+    <div className="register-patient">
+      <h1>Register Patient</h1>
 
       <div className="patient-container">
         <div className="patient-container-one">
