@@ -1,7 +1,7 @@
 import img1 from "../assets/image1.png";
 import { LargeTextField, PasswordInput } from "../Components/Textfeilds";
 import { useState } from "react";
-import "./DoctorRegisterStyles.css";
+import "./DoctorRegister.css";
 import { Link } from "react-router-dom";
 
 function DoctorRegister() {

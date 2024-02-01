@@ -29,7 +29,7 @@ function Navbar() {
       </div>
 
       <div className={`navbar-container-two ${isNavVisible ? "visible" : ""}`}>
-        <Link to="/dasboard" className="nav-link">
+        <Link to="/dashboard" className="nav-link">
           <FaHome />
           Dashboard
         </Link>
