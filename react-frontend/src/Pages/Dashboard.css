@@ -106,9 +106,9 @@
   
 
 @media screen and (max-width: 768px) {
-   
+
     .dashboard-container-one {
-        width: 70%;
+        width: auto;
         flex-direction: column-reverse;
         align-items: center;
         justify-content: center;
@@ -130,6 +130,7 @@
     }
   .dashboard-container-two {
     flex-direction: column;
+    width: auto;
     align-items: center;
     justify-content: center;
     margin: 30px 0px;
@@ -147,6 +148,7 @@
   }
 
   .dashboard-container-three {
+    width: auto;
     margin-left: 0;
     margin-top: 20px;
   }
