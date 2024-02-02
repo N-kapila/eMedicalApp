@@ -1,8 +1,11 @@
 import React from "react";
 import "./PatientList.css";
 import { FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function PatientList() {
+  const navigate = useNavigate();
+
   const data = [
     {
       name: "John Doe",
@@ -55,6 +58,11 @@ function PatientList() {
       nextAppointmentDate: "",
     },
   ];
+
+  const redirectToPatientProfile = () => {
+    navigate("/patient-profile");
+  };
+
   return (
     <div className="list-container">
       <h1>Patient List</h1>
@@ -79,7 +87,7 @@ function PatientList() {
             </thead>
             <tbody>
               {data.map((row, index) => (
-                <tr key={index}>
+                <tr key={index} onClick={redirectToPatientProfile}>
                   <td>{row.name}</td>
                   <td>{row.age}</td>
                   <td>{row.currentDisease}</td>

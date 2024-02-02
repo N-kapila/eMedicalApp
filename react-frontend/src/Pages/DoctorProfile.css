@@ -10,6 +10,7 @@
     color: var(--primary-color);
     padding: 10px;
     font-size:xxx-large;
+    margin: 0;
 }
 
 .profile-container-one{
@@ -40,7 +41,6 @@
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    padding: 200px,
   }
 
   .field-container {
@@ -51,7 +51,10 @@
 
   .field-container p {
     margin-right: 10px; 
-    font-weight: bold;
+   font-family:Georgia, 'Times New Roman', Times, serif;
+   font-size:large;
+   font-weight: bold;
+   width: 200px;
   }
 
   .profile-container-three {
@@ -104,21 +107,8 @@
   }
 
 
-  @media screen and (max-width: 1366px) {
-
-      .profile-container {
-        display: flex;
-        height: 100%;
-      }
-  }
-
   @media screen and (max-width: 768px) {
 
-    body, html {
-        margin-bottom: 0;
-        padding-bottom: 0;
-
-      }
 
     .profile-container {
       display: flex;

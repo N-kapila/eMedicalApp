@@ -72,7 +72,7 @@ function PatientRegister() {
             placeholder="Select disease"
           />
           <br />
-          <p>Next Appointment:</p>
+          <p>Next Appointment Date:</p>
           <LargeTextField placeholder={"Date"} />
         </div>
       </div>

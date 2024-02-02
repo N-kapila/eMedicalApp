@@ -28,7 +28,7 @@ function DoctorProfile() {
         </div>
         <div className="profile-textfield-container">
           <div className="field-container">
-            <p style={{ marginRight: "80px" }}>Email:</p>
+            <p>Email:</p>
             <MediumTextField />
           </div>
           <div className="field-container">

@@ -8,6 +8,7 @@ import DoctorProfile from "../Pages/DoctorProfile";
 import Navbar from "../Pages/Navbar";
 import Dashboard from "../Pages/Dashboard";
 import PatientList from "../Pages/PatientList";
+import PatientProfile from "../Pages/PatientProfile";
 
 function AppRoutes() {
   return (
@@ -56,6 +57,17 @@ function AppRoutes() {
             <Navbar />
             <div style={{ flex: 1, paddingBottom: "30px" }}>
               <PatientList />
+            </div>
+          </div>
+        }
+      />
+      <Route
+        path="/patient-profile"
+        element={
+          <div style={{ display: "flex" }}>
+            <Navbar />
+            <div style={{ flex: 1, padding: "30px" }}>
+              <PatientProfile />
             </div>
           </div>
         }
