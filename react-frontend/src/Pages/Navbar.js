@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { FaHome, FaUser, FaClipboardList, FaList } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import userimg from "../assets/user.png";
 
 function Navbar() {
@@ -14,6 +14,13 @@ function Navbar() {
   const closeNav = () => {
     setIsNavVisible(false);
   };
+
+  const location = useLocation();
+  const [activeLink, setActiveLink] = useState("");
+
+  useEffect(() => {
+    setActiveLink(location.pathname);
+  }, [location]);
 
   return (
     <div className="navbar-container">
@@ -32,22 +39,46 @@ function Navbar() {
       </div>
 
       <div className={`navbar-container-two ${isNavVisible ? "visible" : ""}`}>
-        <Link to="/dashboard" className="nav-link" onClick={closeNav}>
+        <NavLink
+          to="/dashboard"
+          className={`nav-link ${
+            activeLink === "/dashboard" ? "active-link" : ""
+          }`}
+          onClick={closeNav}
+        >
           <FaHome />
           Dashboard
-        </Link>
-        <Link to="/doctor-profile" className="nav-link" onClick={closeNav}>
+        </NavLink>
+        <NavLink
+          to="/doctor-profile"
+          className={`nav-link ${
+            activeLink === "/doctor-profile" ? "active-link" : ""
+          }`}
+          onClick={closeNav}
+        >
           <FaUser />
           My Profile
-        </Link>
-        <Link to="/patient-register" className="nav-link" onClick={closeNav}>
+        </NavLink>
+        <NavLink
+          to="/patient-register"
+          className={`nav-link ${
+            activeLink === "/patient-register" ? "active-link" : ""
+          }`}
+          onClick={closeNav}
+        >
           <FaClipboardList />
           Patient Registration
-        </Link>
-        <Link to="/patient-list" className="nav-link" onClick={closeNav}>
+        </NavLink>
+        <NavLink
+          to="/patient-list"
+          className={`nav-link ${
+            activeLink === "/patient-list" ? "active-link" : ""
+          }`}
+          onClick={closeNav}
+        >
           <FaList />
           Patient List
-        </Link>
+        </NavLink>
       </div>
     </div>
   );
