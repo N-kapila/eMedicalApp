@@ -3,8 +3,15 @@ import img2 from "../assets/image2.png";
 import logo from "../assets/logo.png";
 import { LargeTextField, PasswordInput } from "../Components/Textfeilds";
 import "./DoctorSignin.css";
+import { useNavigate } from "react-router-dom";
 
 function DoctorSignin() {
+  const navigate = useNavigate();
+
+  const handleSignInClick = () => {
+    // Redirect to /dashboard when the button is clicked
+    navigate("/dashboard");
+  };
   return (
     <div className="signin-container">
       <div className="signin-container-one">
@@ -38,7 +45,7 @@ function DoctorSignin() {
             </Link>
           </div>
           <div className="Signin-button-section">
-            <button className="signin-button">
+            <button className="signin-button" onClick={handleSignInClick}>
               <h2>Sign in</h2>
             </button>
           </div>

@@ -2,7 +2,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 100%;
     width: 100%;
+    padding: 10px;
   }
   
   .dashboard-container-one {
@@ -97,7 +99,9 @@
   }
   
   .patient-table th {
-    background-color: #f2f2f2;
+    background-color: #dedddd;
+    font-weight: bold;
+    
   }
 
   
