@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-textfields',
@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
   templateUrl: './textfields.component.html',
   styleUrl: './textfields.component.css'
 })
+
 export class TextfieldsComponent {
+  @Input() placeholder!: string;
+  @Input() value!: any;
 
 }

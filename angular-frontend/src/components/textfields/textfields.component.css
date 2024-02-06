@@ -1,0 +1,25 @@
+.small-text-field{
+    width: 100px;
+    height: 25px;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    border: 0;
+}
+
+.medium-text-field{
+    width: 200px;
+    height: 25px;
+    /* background-color: #eeeeee; */
+    border-radius: 5px;
+    border: 0;
+    padding: 5px;
+}
+
+.large-text-field{
+    width: 400px;
+    height: 20px;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    border: 0;
+    padding: 10px;
+}
