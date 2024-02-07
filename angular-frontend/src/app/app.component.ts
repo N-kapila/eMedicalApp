@@ -11,4 +11,7 @@ import { TextfieldsComponent } from '../components/textfields/textfields.compone
 })
 export class AppComponent {
   title = 'e-HealthHub';
+  textValue: string = '';
+  password: string = '';
+
 }

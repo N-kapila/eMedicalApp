@@ -1,6 +1,26 @@
-<!-- <app-textfields size="sm" [placeholder]="'Small Text'"></app-textfields>
-<app-textfields size="md" [placeholder]="'Medium Text'"></app-textfields> -->
-
-<!-- <app-textfields [placeholder]="'Enter Text'"></app-textfields> -->
+<app-textfields
+  type="text"
+  size="lg"
+  placeholder="Enter Text"
+  [(value)]="textValue"
+></app-textfields>
+<app-textfields
+  type="text"
+  size="md"
+  placeholder="Enter Text"
+  [(value)]="textValue"
+></app-textfields>
+<app-textfields
+  type="text"
+  size="sm"
+  placeholder="Enter Text"
+  [(value)]="textValue"
+></app-textfields>
+<app-textfields
+  type="password"
+  size="md"
+  placeholder="Enter Password"
+  [(value)]="password"
+></app-textfields>
 
 <router-outlet></router-outlet>

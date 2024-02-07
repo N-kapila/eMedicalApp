@@ -1,15 +1,32 @@
-<!-- <input
-  type="text"
-  [placeholder]="placeholder"
-  [(ngModel)]="value"
-  (ngModelChange)="onChange($event)"
-/> -->
-
-<!-- <div *ngIf="size === 'sm'">
-  <input type="text" class="small-text-field" [placeholder]="placeholder" />
+<div *ngIf="type !== 'password'">
+  <input
+    type="text"
+    [placeholder]="placeholder"
+    [class.small-text-field]="size === 'sm'"
+    [class.medium-text-field]="size === 'md'"
+    [class.large-text-field]="size === 'lg'"
+    [(ngModel)]="value"
+    (ngModelChange)="onChange($event)"
+  />
 </div>
-<div *ngIf="size === 'md'">
-  <input type="text" class="medium-text-field" [placeholder]="placeholder" />
-</div> -->
 
-<input type="text" class="large-text-field" [placeholder]="placeholder" />
+<div *ngIf="type === 'password'">
+  <div class="password-input-container">
+    <input
+      type="{{ showPassword ? 'text' : 'password' }}"
+      [placeholder]="placeholder"
+      [class.small-text-field]="size === 'sm'"
+      [class.medium-text-field]="size === 'md'"
+      [class.large-text-field]="size === 'lg'"
+      [(ngModel)]="value"
+      (ngModelChange)="onChange($event)"
+      class="password-input"
+    />
+    <span class="password-toggle" (click)="toggleShowPassword()">
+      <fa-icon *ngIf="showPassword; else hideIcon" [icon]="faEye"></fa-icon>
+      <ng-template #hideIcon>
+        <fa-icon [icon]="faEyeSlash"></fa-icon>
+      </ng-template>
+    </span>
+  </div>
+</div>
