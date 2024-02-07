@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TextfieldsComponent } from '../components/textfields/textfields.component';
+import { TextfieldsComponent } from '../components/textfields/textfields.component'; 
 
 @Component({
   selector: 'app-root',

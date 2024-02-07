@@ -1,4 +1,6 @@
 import { Component, Input, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-textfields',
@@ -10,6 +12,6 @@ import { Component, Input, NgModule } from '@angular/core';
 
 export class TextfieldsComponent {
   @Input() placeholder!: string;
-  @Input() value!: any;
-
+  @Input() size!: string ;
+  
 }
