@@ -18,9 +18,9 @@ export class TextfieldsComponent {
   faEyeSlash = faEyeSlash;
   faMugHot= faMugHot;
 
-@Input() type: 'text' | 'password' = 'text'; // Default type is text
+@Input() type: 'text' | 'password' = 'text'; 
   @Input() placeholder!: string;
-  @Input() size: 'sm' | 'md' | 'lg' = 'md'; // Default size is medium
+  @Input() size: 'sm' | 'md' | 'lg' = 'md'; 
   @Input() value!: string;
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
 
