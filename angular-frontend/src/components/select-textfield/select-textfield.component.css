@@ -7,3 +7,9 @@
      padding: 10px;
      margin-right: 50px;
  }
+
+  @media screen and (max-width: 492px) {
+      .select-text-field {
+          width: 350px;
+      }
+    }

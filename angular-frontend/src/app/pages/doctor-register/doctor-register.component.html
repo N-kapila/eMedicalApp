@@ -1,1 +1,107 @@
-<p>doctor-register works!</p>
+<div class="doctorRegister-container">
+  <div class="doctorRegister-container-one">
+    <img [src]="img1" alt="" />
+  </div>
+  <div class="doctorRegister-container-two">
+    <div class="signup-header">
+      <div class="flex-container">
+        <h4>Already have an account?</h4>
+        <a (click)="navigateToDoctorSignin()">Sign in</a>
+      </div>
+    </div>
+
+    <div class="header">
+      <h1>Doctor Sign Up</h1>
+    </div>
+
+    <div class="textField-container">
+      <div class="textField-container-one">
+        <p>Full Name:</p>
+        <app-textfields type="text" size="lg" placeholder="Enter your name" />
+        <br />
+        <p>Doctor Id:</p>
+        <app-textfields
+          type="text"
+          size="lg"
+          placeholder="Enter your id"
+        /><br />
+        <p>Speciality:</p>
+        <app-textfields
+          type="text"
+          size="lg"
+          placeholder="Enter speciality"
+        /><br />
+      </div>
+
+      <div class="textField-container-one">
+        <p>Email:</p>
+        <app-textfields
+          type="text"
+          size="lg"
+          placeholder="Enter email address"
+        /><br />
+        <p>Mobile Number:</p>
+        <app-textfields
+          type="text"
+          size="lg"
+          placeholder="Enter mobile number"
+        /><br />
+        <p>Hospital Name:</p>
+        <app-textfields
+          type="text"
+          size="lg"
+          placeholder="Enter hospital name"
+        /><br />
+      </div>
+    </div>
+
+    <div class="textField-container">
+      <div class="textField-container-one">
+        <p>Password:</p>
+        <app-textfields
+          type="password"
+          size="lg"
+          placeholder="Enter Password"
+        /><br />
+      </div>
+
+      <div class="textField-container-one">
+        <p>Confirm Password:</p>
+        <app-textfields
+          type="password"
+          size="lg"
+          placeholder="Re-enter Password"
+        /><br />
+      </div>
+    </div>
+
+    <div class="footer-container">
+      <div class="profile-section">
+        <ng-container *ngIf="profilePic">
+          <div>
+            <div class="profile-pic-container">
+              <img [src]="profilePic" alt="Profile" class="profile-pic" />
+            </div>
+          </div>
+        </ng-container>
+        <div>
+          <div class="label-container">
+            <input
+              type="file"
+              id="fileInput"
+              accept="image/*"
+              (change)="handleFileChange($event)"
+            />
+            <span class="file-input-text"> Choose profile picture </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-section">
+        <button class="signup-button">
+          <h2>Sign Up</h2>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
