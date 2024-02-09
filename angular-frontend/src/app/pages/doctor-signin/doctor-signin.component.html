@@ -1,1 +1,41 @@
-<p>doctor-signin works!</p>
+<div class="signin-container">
+  <div class="signin-container-one">
+    <div class="welcome-meassage">
+      <h1>Hi,</h1>
+      <h1>Welcome Back</h1>
+    </div>
+    <img [src]="img2" alt="" />
+  </div>
+
+  <div class="signin-container-two">
+    <div class="signup-header">
+      <div class="flex-container">
+        <h3>Create an account?</h3>
+        <a (click)="navigateToDoctorSignup()">Sign up</a>
+      </div>
+    </div>
+
+    <div class="signin-body">
+      <div class="signin-header">
+        <h1>Login to eHealthHub</h1>
+      </div>
+
+      <div class="signin-textfield-container">
+        <app-textfields type="text" size="lg" placeholder="Enter your email" />
+        <br />
+        <app-textfields
+          type="password"
+          size="lg"
+          placeholder="Enter Password"
+        /><br />
+        <a (click)="navigateToForgotPassword()"> Forgot Password? </a>
+      </div>
+
+      <div class="Signin-button-section">
+        <button class="signin-button" (click)="handleClick()">
+          <h3>Sign in</h3>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
