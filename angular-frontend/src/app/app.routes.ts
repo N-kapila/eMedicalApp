@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { DoctorRegisterComponent } from './pages/doctor-register/doctor-register.component';
-import { DoctorSigninComponent } from './pages/doctor-signin/doctor-signin.component';
 
 export const routes: Routes = [
     {
@@ -16,5 +15,10 @@ export const routes: Routes = [
         path:'doctor-signin',
         loadComponent:()=>
             import('./pages/doctor-signin/doctor-signin.component').then((c)=>c.DoctorSigninComponent),
+    },
+     {
+        path:'navbar',
+        loadComponent:()=>
+            import('./pages/navbar/navbar.component').then((c)=>c.NavbarComponent),
     }
 ];

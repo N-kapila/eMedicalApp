@@ -1,0 +1,64 @@
+<div class="navbar-container">
+  <button class="toggle-nav-btn" (click)="toggleNavVisibility()">
+    &#9776;
+  </button>
+  <div
+    class="overlay"
+    [class.visible]="isNavVisible"
+    (click)="closeNav()"
+  ></div>
+
+  <div class="navbar-container-one" [class.visible]="isNavVisible">
+    <img class="nav-image" [src]="userimg" alt="" />
+    <h3 class="doctor-details">Dr: xxxxxx</h3>
+    <h3 class="doctor-details">ID: 12345678</h3>
+  </div>
+
+  <div class="navbar-container-two" [class.visible]="isNavVisible">
+    <a
+      (click)="navigateToDoctorSignin()"
+      class="nav-link"
+      [class.active-link]="activeLink === '/dashboard'"
+      (click)="closeNav()"
+    >
+      <div class="icon-text-container">
+        <fa-icon [icon]="faHouseChimney"></fa-icon>
+        <span>Dashboard</span>
+      </div>
+    </a>
+
+    <a
+      (click)="navigateToDoctorSignin()"
+      class="nav-link"
+      [class.active-link]="activeLink === '/navbar'"
+      (click)="closeNav()"
+    >
+      <div class="icon-text-container">
+        <fa-icon [icon]="faUser"></fa-icon>
+        My Profile
+      </div>
+    </a>
+    <a
+      (click)="navigateToDoctorSignin()"
+      class="nav-link"
+      [class.active-link]="activeLink === '/patient-register'"
+      (click)="closeNav()"
+    >
+      <div class="icon-text-container">
+        <fa-icon [icon]="faClipboardList"></fa-icon>
+        Patient Registration
+      </div>
+    </a>
+    <a
+      (click)="navigateToDoctorSignin()"
+      class="nav-link"
+      [class.active-link]="activeLink === '/patient-list'"
+      (click)="closeNav()"
+    >
+      <div class="icon-text-container">
+        <fa-icon [icon]="faList"></fa-icon>
+        Patient List
+      </div>
+    </a>
+  </div>
+</div>
