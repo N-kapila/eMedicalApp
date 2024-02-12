@@ -70,7 +70,7 @@
     margin-right: 10px;
 }
 
-.nav-link.active-link {
+.nav-link.active-link .icon-text-container {
     color: var(--primary-color);
 }
 

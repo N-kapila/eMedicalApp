@@ -1,0 +1,66 @@
+<div class="register-patient">
+  <h1>Register Patient</h1>
+
+  <div class="patient-container">
+    <div class="patient-container-one">
+      <p>Full Name:</p>
+      <app-textfields type="text" size="lg" placeholder="Enter your name" />
+      <br />
+      <p>Age:</p>
+      <app-textfields type="text" size="lg" placeholder="Enter your age" />
+      <br />
+      <p>Email:</p>
+      <app-textfields type="text" size="lg" placeholder="Enter email address" />
+      <br />
+      <p>Current Diseases:</p>
+      <app-select-textfield
+        [value]="selectedOption"
+        [placeholder]="'Select disease'"
+        [options]="selectOptions"
+      /><br />
+      <p>Current Medication:</p>
+      <app-select-textfield
+        [value]="selectedOption"
+        [placeholder]="'Select mediaction'"
+        [options]="selectOptions"
+      /><br />
+      <p>Current Treatments:</p>
+      <app-select-textfield
+        [value]="selectedOption"
+        [placeholder]="'Select treatments'"
+        [options]="selectOptions"
+      /><br />
+    </div>
+
+    <div class="patient-container-one">
+      <p>Gender:</p>
+      <app-textfields type="text" size="lg" placeholder="Gender" />
+      <br />
+      <p>Mobile Number:</p>
+      <app-textfields type="text" size="lg" placeholder="Enter mobile number" />
+      <br />
+      <p>Address:</p>
+      <app-textfields type="text" size="lg" placeholder="Enter address" />
+      <br />
+      <p>Register Date:</p>
+      <app-textfields type="text" size="lg" placeholder="Enter register date" />
+      <br />
+      <p>Past Diseases:</p>
+      <br />
+      <app-select-textfield
+        [value]="selectedOption"
+        [placeholder]="'Select disease'"
+        [options]="selectOptions"
+      /><br />
+      <p>Next Appointment Date:</p>
+      <app-textfields type="text" size="lg" placeholder="Date" />
+      <br />
+    </div>
+  </div>
+
+  <div class="button-section">
+    <button class="register-button">
+      <h2>Register</h2>
+    </button>
+  </div>
+</div>

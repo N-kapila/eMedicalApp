@@ -38,10 +38,11 @@
         My Profile
       </div>
     </a>
+
     <a
-      (click)="navigateToDoctorSignin()"
+      (click)="navigateToPatientRegister()"
       class="nav-link"
-      [class.active-link]="activeLink === '/patient-register'"
+      [class.active-link]="activeLink.includes('/patient-register')"
       (click)="closeNav()"
     >
       <div class="icon-text-container">
@@ -49,6 +50,7 @@
         Patient Registration
       </div>
     </a>
+
     <a
       (click)="navigateToDoctorSignin()"
       class="nav-link"

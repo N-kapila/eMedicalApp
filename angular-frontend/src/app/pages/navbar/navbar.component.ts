@@ -3,11 +3,12 @@ import { Router, NavigationEnd, RouterModule,Event } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { faHouseChimney, faUser, faClipboardList, faList } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterModule,FontAwesomeModule],
+  imports: [RouterModule,FontAwesomeModule, CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
@@ -26,14 +27,17 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/doctor-signin']);
   }
 
+  navigateToPatientRegister() {
+    this.router.navigate(['/patient-register']);
+  }
+
 ngOnInit(): void {
-    this.router.events
-      .pipe(
-        filter((event: Event): event is NavigationEnd => event instanceof NavigationEnd)
-      )
-      .subscribe((event: NavigationEnd) => {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
         this.activeLink = event.url;
-      });
+        console.log('Active link:', this.activeLink);
+      }
+    });
   }
 
   toggleNavVisibility() {
