@@ -1,0 +1,238 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+}
+
+.dashboard-container-one {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px 50px;
+    padding: 50px;
+    height: 10vh;
+    width: 80%;
+    background-color: #d9d8d8;
+    border-radius: 10px;
+}
+
+.dashboard-container-one h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.dashboard-container-one p {
+    font-size: large;
+}
+
+.dashboard-user-image img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+ .dashboard-container-two {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: space-around;
+     padding: 50px;
+     margin: 30px;
+     height: 20vh;
+     width: 90%;
+ }
+
+ .dashboard-container-two img {
+     height: 250px;
+     width: auto;
+ }
+
+  .calendar-container {
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 10px;
+      width: 300px;
+      height: auto;
+  }
+
+  .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+  }
+
+  .days-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+  }
+
+  .days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+  }
+
+  .day {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+  }
+
+  button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+  }
+
+  button:hover {
+      background-color: #0056b3;
+  }
+
+  .dashboard-container-three {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 50px;
+      width: 80%;
+      margin-left: 40px;
+  }
+
+  .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 10px;
+      width: 90%;
+  }
+
+  .dashboard-header h2 {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      color: var(--primary-color);
+  }
+
+   .dashboard-header a {
+       text-decoration: none;
+       color: #007bff;
+        cursor: pointer;
+   }
+
+.dashboard-header a :hover {
+            text-decoration: underline;
+        }
+
+.patient-table-container {
+    width: 100%;
+}
+
+.patient-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.patient-table th,
+.patient-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.patient-table th {
+    background-color: #dedddd;
+    font-weight: bold;
+
+}
+
+@media screen and (max-width: 1366px) {
+
+    .dashboard-container-two {
+        width: auto;
+    }
+    .dashboard-container-two img {
+        height: 200px;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .dashboard-container-one {
+        width: auto;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        padding-top: 100px;
+        padding-bottom: 100px;
+        margin-bottom: 70px;
+    }
+
+    .dashboard-user-image img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .dashboard-container-one h1 {
+        text-align: center;
+    }
+
+    .dashboard-container-one p {
+        display: none;
+    }
+
+    .dashboard-container-two {
+        flex-direction: column;
+        width: auto;
+        align-items: center;
+        justify-content: center;
+        margin: 30px 0px;
+        margin-bottom: 70px;
+    }
+
+    .dashboard-container-two img {
+        width: 100%;
+        height: auto;
+    }
+
+    .calendar-container {
+        width: 100%;
+        max-width: 300px;
+        margin-top: 20px;
+    }
+
+    .dashboard-container-three {
+        width: auto;
+        margin-left: 0;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .dashboard-header a {
+        margin-top: 10px;
+    }
+
+    .patient-table-container {
+        width: 100%;
+    }
+
+    .patient-table {
+        margin-top: 5px;
+    }
+}
+

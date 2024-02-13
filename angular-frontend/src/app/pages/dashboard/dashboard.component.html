@@ -1,0 +1,64 @@
+<div class="dashboard-container">
+  <div class="dashboard-container-one">
+    <div>
+      <h1>Good morning, Dr. xxxxx</h1>
+      <p>
+        You have 7 patients remaining today! <br />
+        Remember to record your details today.
+      </p>
+    </div>
+    <div class="dashboard-user-image">
+      <img [src]="userimg" alt="" />
+    </div>
+  </div>
+
+  <div class="dashboard-container-two">
+    <img [src]="chart" alt="Chart" />
+    <div class="calendar-container">
+      <div class="header">
+        <button (click)="previous()">Previous</button>
+        <span>{{ currentMonth }}</span>
+        <button (click)="next()">Next</button>
+      </div>
+      <div class="days-header">
+        <div class="day">Mon</div>
+        <div class="day">Tue</div>
+        <div class="day">Wed</div>
+        <div class="day">Thu</div>
+        <div class="day">Fri</div>
+        <div class="day">Sat</div>
+        <div class="day">Sun</div>
+      </div>
+      <div class="days">
+        <div class="day" *ngFor="let day of daysInMonth">
+          {{ day }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-container-three">
+    <div class="dashboard-header">
+      <h2>Recent Patient List</h2>
+      <a (click)="navigateToPatientList()">View All</a>
+    </div>
+    <div class="patient-table-container">
+      <table class="patient-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Current Disease</th>
+            <th>Next Appointment Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of data">
+            <td>{{ row.name }}</td>
+            <td>{{ row.currentDisease }}</td>
+            <td>{{ row.nextAppointmentDate }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

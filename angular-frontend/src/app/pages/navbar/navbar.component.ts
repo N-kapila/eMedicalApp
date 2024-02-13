@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, RouterModule,Event } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { Router, NavigationEnd, RouterModule } from '@angular/router';
 import { faHouseChimney, faUser, faClipboardList, faList } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
@@ -31,11 +30,14 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/patient-register']);
   }
 
+  navigateToDashboard() {
+    this.router.navigate(['/dashboard']);
+  }
+
 ngOnInit(): void {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.activeLink = event.url;
-        console.log('Active link:', this.activeLink);
       }
     });
   }
