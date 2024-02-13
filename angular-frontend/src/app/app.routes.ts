@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout/layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { DoctorProfileComponent } from './pages/doctor-profile/doctor-profile.component';
 import { DoctorRegisterComponent } from './pages/doctor-register/doctor-register.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { PatientRegisterComponent } from './pages/patient-register/patient-register.component';
@@ -25,6 +26,7 @@ export const routes: Routes = [
         loadComponent:()=>
             import('./pages/navbar/navbar.component').then((c)=>c.NavbarComponent),
     },
+  
      {
     path: '',
     component: LayoutComponent,
@@ -40,7 +42,12 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent 
+      },
+      {
+        path: 'doctor-profile',
+        component: DoctorProfileComponent 
       }
+
     ]
   }
     

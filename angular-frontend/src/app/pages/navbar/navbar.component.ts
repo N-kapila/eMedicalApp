@@ -34,6 +34,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/dashboard']);
   }
 
+  navigateToDoctorProfile(){
+    this.router.navigate(['/doctor-profile'])
+  }
+
 ngOnInit(): void {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {

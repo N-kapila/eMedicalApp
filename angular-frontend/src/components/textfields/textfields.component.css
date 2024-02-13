@@ -8,10 +8,9 @@
 
 .medium-text-field{
     width: 200px;
-    height: 25px;
-    /* background-color: #eeeeee; */
+  /*  background-color: #eeeeee; */
     border-radius: 5px;
-    border: 0;
+    border: 1px rgb(139, 139, 139) solid;
     padding: 5px;
 }
 
