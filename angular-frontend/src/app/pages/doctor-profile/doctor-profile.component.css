@@ -109,6 +109,17 @@
     background-color: #740400;
 }
 
+@media screen and (max-width: 1366px) {
+    .profile-container-two {
+        width: auto;
+        padding-left: 100px
+    }
+
+    .profile-container-three{
+        width: 100%;
+    }
+}
+
 
 @media screen and (max-width: 768px) {
 
@@ -118,6 +129,7 @@
         flex-direction: column;
         align-items: center;
         padding: 0;
+        width: auto;
     }
 
     .user-image {
@@ -130,7 +142,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 20px;
     }
 
     .profile-textfield-container {
@@ -153,11 +164,25 @@
     .save-button,
     .signout-button,
     .delete-button {
-        width: 100%;
-        /* Make all buttons the same width */
+        width: 25%;
         padding: 3px;
         margin-bottom: 10px;
         font-size: 12px;
     }
 
+}
+
+@media (max-width: 375px) {
+    .profile-container {
+        width: auto;
+    }
+
+    .profile-container-two {
+      margin-left: 75px;
+      padding-right: 0;
+    }
+
+    .field-container p {
+         margin-right: 0;
+    }
 }

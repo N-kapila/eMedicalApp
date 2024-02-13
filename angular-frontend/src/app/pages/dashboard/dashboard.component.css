@@ -156,7 +156,7 @@
 @media screen and (max-width: 1366px) {
 
     .dashboard-container-two {
-        width: auto;
+       padding: 50px;
     }
     .dashboard-container-two img {
         height: 200px;
