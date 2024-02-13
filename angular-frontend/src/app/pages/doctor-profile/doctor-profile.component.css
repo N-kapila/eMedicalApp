@@ -115,9 +115,33 @@
         padding-left: 100px
     }
 
-    .profile-container-three{
+    .profile-container-three {
         width: 100%;
     }
+
+}
+
+@media screen and (max-width: 950px) {
+
+
+    .profile-container-two {
+    flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    
+    }
+
+        .edit-button,
+        .save-button,
+        .signout-button,
+        .delete-button {
+            width: 25%;
+            padding: 3px;
+            margin-bottom: 10px;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+
 }
 
 
