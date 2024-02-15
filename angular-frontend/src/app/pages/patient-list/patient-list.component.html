@@ -1,0 +1,37 @@
+<div class="list-container">
+  <h1>Patient List</h1>
+  <div class="list-container-one">
+    <div class="search-bar">
+      <input type="text" placeholder="Search..." [value]="searchQuery" />
+      <fa-icon class="search-icon" [icon]="faSearch"></fa-icon>
+    </div>
+  </div>
+
+  <div class="list-container-two">
+    <div class="patient-table-container">
+      <table class="patient-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Current Disease</th>
+            <th>Mobile Number</th>
+            <th>Next Appointment Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let row of data; let i = index"
+            (click)="redirectToPatientProfile()"
+          >
+            <td>{{ row.name }}</td>
+            <td>{{ row.age }}</td>
+            <td>{{ row.currentDisease }}</td>
+            <td>+94 {{ row.mobileNumber }}</td>
+            <td>{{ row.nextAppointmentDate }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

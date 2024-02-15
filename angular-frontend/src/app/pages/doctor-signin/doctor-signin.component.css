@@ -1,0 +1,202 @@
+.signin-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100%;
+}
+
+.signin-container-one {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 40%;
+}
+
+.welcome-meassage {
+    display: flex;
+    flex-direction: row;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: x-large;
+}
+
+.signin-container-one h1,
+.signin-container-one h1 {
+    margin: 0;
+    margin-right: 10px;
+}
+
+.signin-container-two {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 60%;
+    background-color: var(--primary-color);
+}
+
+ .signup-header {
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+     padding: 20px 20px 0 0;
+ }
+
+ .flex-container {
+     display: flex;
+     align-items: center;
+     
+ }
+
+ .flex-container h3 {
+     margin-right: 5px;
+     color: white;
+ }
+
+ .flex-container a {
+     cursor: pointer;
+    color: aliceblue;
+ }
+
+ .flex-container a:hover {
+     text-decoration: underline;
+ }
+
+ .signin-header {
+     display: flex;
+     flex-direction: row;
+     font-size: 30px;
+     color: white;
+     margin-bottom: 40px;
+
+ }
+
+ .signin-header h1:first-child {
+     margin-right: 10px;
+ }
+
+ .signin-body {
+     display: flex;
+     flex-direction: column;
+     height: 100%;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .signin-textfield-container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     gap: 5px;
+ }
+
+ .signin-textfield-container a{
+    color: aliceblue;
+    cursor: pointer;
+ }
+
+  .signin-textfield-container a:hover {
+    text-decoration: underline;
+}
+
+.Signin-button-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 75px;
+    padding-bottom: 0;
+}
+
+.signin-button {
+    color: var(--primary-color);
+    background-color: white;
+    padding: 0 50px 0 50px;
+    border: 0;
+    border-radius: 10px;
+    font-size: medium;
+}
+
+.signin-button h3{
+    font-weight: bolder;
+}
+
+.signin-button:hover {
+    background-color: rgb(185, 182, 182);
+}
+
+@media screen and (max-width: 1366px) {
+    
+    .signin-container {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .signin-container-one {
+        display: none;
+    }
+
+    .signin-container-two {
+        width: 100%;
+    }
+
+    .signin-header {
+        font-size: 30px;
+    }
+
+    .signin-body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+
+@media screen and (max-width: 768px) {
+    .signin-container {
+        flex-direction: column;
+    }
+
+    .signin-container-one {
+        display: none;
+    }
+
+    .signin-container-two {
+        width: 100%;
+    }
+
+    .signin-header {
+        font-size: 20px;
+    }
+
+    .signin-body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .signin-button {
+        font-size: small;
+        padding: auto;
+    }
+
+}
+
+@media (max-width: 375px) {
+
+    .flex-container h3 {
+        font-size: medium;
+    }
+    .signin-header h1{
+        font-size: larger;
+    }
+
+    .signin-button {
+        padding: 0 30px 0 30px;
+        }
+    .signin-button h3 {
+           font-size: small;
+        }
+}

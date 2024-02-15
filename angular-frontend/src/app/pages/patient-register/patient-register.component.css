@@ -1,0 +1,87 @@
+.register-patient {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+
+}
+
+.register-patient h1 {
+    color: var(--primary-color);
+    padding: 10px;
+    font-size: xxx-large;
+}
+
+.patient-container {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.patient-container-one {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    padding-left: 100px;
+}
+
+.button-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.register-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1px 100px 1px 100px;
+    border: 0;
+    border-radius: 10px;
+}
+
+.register-button:hover {
+    background-color: #903e00;
+}
+
+@media screen and (max-width: 1366px) {
+
+    .patient-container-one {
+        width: 100%;
+        padding-left: 50px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .register-patient {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .patient-container {
+        flex-direction: column;
+    }
+
+    .patient-container-one {
+        width: 100%;
+        padding-left: 0;
+    }
+
+}
+
+@media (max-width: 375px) {
+.register-patient h1 {
+    font-size: xx-large;
+}
+
+.register-button {
+padding: 0 30px 0 30px;
+}
+}

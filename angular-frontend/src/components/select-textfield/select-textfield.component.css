@@ -1,0 +1,22 @@
+ .select-text-field {
+     width: 420px;
+     height: 40px;
+     background-color: #eeeeee;
+     border-radius: 10px;
+     border: 0;
+     padding: 10px;
+     margin-right: 50px;
+ }
+
+  @media screen and (max-width: 492px) {
+      .select-text-field {
+          width: 350px;
+      }
+    }
+
+
+@media (max-width: 375px) {
+.select-text-field {
+        width: 220px;
+    }
+}

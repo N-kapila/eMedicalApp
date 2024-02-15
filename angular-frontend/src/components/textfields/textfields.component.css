@@ -1,0 +1,71 @@
+.small-text-field{
+    width: 100px;
+    height: 25px;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    border: 0;
+}
+
+.medium-text-field{
+    width: 200px;
+  /*  background-color: #eeeeee; */
+    border-radius: 5px;
+    /* border: 1px rgb(139, 139, 139) solid; */
+    border: 0;
+    padding: 5px;
+}
+
+.large-text-field{
+    width: 400px;
+    height: 20px;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    border: 0;
+    padding: 10px;
+}
+
+.password-input-container {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.password-input{
+    position: relative;
+    width: 400px;
+    height: 20px;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    border: 0;
+    padding: 10px;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+ @media screen and (max-width: 492px) {
+     .large-text-field {
+         width: 350px;
+     }
+
+     .password-input {
+         width: 350px;
+     }
+
+    }
+
+@media (max-width: 375px) {
+.large-text-field {
+        width: 200px;
+        height: 20px;
+    }
+
+    .password-input {
+        width: 200px;
+        height: 20px;
+    }
+}
