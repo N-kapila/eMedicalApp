@@ -80,6 +80,7 @@ input {
         align-items: center;
         justify-content: center;
         padding-top: 0;
+        height: 100vh;
     }
 
     .list-container h1 {
