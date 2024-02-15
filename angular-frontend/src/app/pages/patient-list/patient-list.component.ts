@@ -68,6 +68,6 @@ export class PatientListComponent {
   constructor(private router: Router) {}
 
   redirectToPatientProfile() {
-    this.router.navigate(['/doctor-profile']); 
+    this.router.navigate(['/patient-profile']); 
   }
 }

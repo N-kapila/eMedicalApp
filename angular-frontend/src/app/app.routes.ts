@@ -5,6 +5,7 @@ import { DoctorProfileComponent } from './pages/doctor-profile/doctor-profile.co
 import { DoctorRegisterComponent } from './pages/doctor-register/doctor-register.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { PatientListComponent } from './pages/patient-list/patient-list.component';
+import { PatientProfileComponent } from './pages/patient-profile/patient-profile.component';
 import { PatientRegisterComponent } from './pages/patient-register/patient-register.component';
 
 export const routes: Routes = [
@@ -51,6 +52,10 @@ export const routes: Routes = [
       {
         path: 'patient-list',
         component: PatientListComponent 
+      },
+       {
+        path: 'patient-profile',
+        component: PatientProfileComponent 
       },
 
     ]

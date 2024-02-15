@@ -10,7 +10,8 @@
     width: 200px;
   /*  background-color: #eeeeee; */
     border-radius: 5px;
-    border: 1px rgb(139, 139, 139) solid;
+    /* border: 1px rgb(139, 139, 139) solid; */
+    border: 0;
     padding: 5px;
 }
 
