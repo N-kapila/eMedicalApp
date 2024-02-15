@@ -26,6 +26,35 @@
     padding: 50px;
 }
 
+@media screen and (max-width: 1366px) {
+    .patient-profile-container-one {
+    margin-left: 100px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+
+    .patient-profile-container-one {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .patient-profile-container-two{
+        width: 100%;
+    }
+    .edit-button,
+    .signout-button,
+    .delete-button {
+        width: 25%;
+        padding: 3px;
+        margin-bottom: 10px;
+        font-size: 12px;
+        margin-right: 10px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .patient-profile-container{
         align-items: center;
@@ -41,5 +70,24 @@
 
     .patient-profile-container-two{
         flex-direction: column;
+    }
+
+        .edit-button,
+        .save-button,
+        .delete-button {
+            width: 25%;
+            /* Make all buttons the same width */
+            padding: 3px;
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
+}
+
+@media (max-width: 375px) {
+.edit-button,
+    .save-button,
+    .delete-button {
+        width: 50%;
+
     }
 }

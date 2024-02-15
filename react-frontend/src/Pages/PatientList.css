@@ -78,3 +78,13 @@ input {
 
     }
   }
+
+    @media (max-width: 375px) {
+      .list-container {
+        margin-top: 50px;
+      }
+
+      .list-container h1 {
+        font-size: xx-large;
+      }
+    }

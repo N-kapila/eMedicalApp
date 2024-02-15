@@ -65,6 +65,10 @@
         padding: 0;
     }
 
+     .register-patient h1 {
+        font-size: xx-large;
+     }
+
     .patient-container {
         flex-direction: column;
     }

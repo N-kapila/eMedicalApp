@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import "./Routes.css";
 import DoctorRegister from "../Pages/DoctorRegister";
 import DoctorSignin from "../Pages/DoctorSignin";
 import ErrorPage from "../Pages/ErrorPage";
@@ -20,9 +21,9 @@ function AppRoutes() {
       <Route
         path="/patient-register"
         element={
-          <div style={{ display: "flex" }}>
+          <div className="content">
             <Navbar />
-            <div style={{ flex: 1, padding: "20px" }}>
+            <div className="main-content">
               <PatientRegister />
             </div>
           </div>
@@ -31,9 +32,9 @@ function AppRoutes() {
       <Route
         path="/doctor-profile"
         element={
-          <div style={{ display: "flex" }}>
+          <div className="content">
             <Navbar />
-            <div style={{ flex: 1, padding: "30px" }}>
+            <div className="main-content">
               <DoctorProfile />
             </div>
           </div>
@@ -42,9 +43,9 @@ function AppRoutes() {
       <Route
         path="/dashboard"
         element={
-          <div style={{ display: "flex" }}>
+          <div className="content">
             <Navbar />
-            <div style={{ flex: 1, padding: "30px" }}>
+            <div className="main-content">
               <Dashboard />
             </div>
           </div>
@@ -53,9 +54,9 @@ function AppRoutes() {
       <Route
         path="/patient-list"
         element={
-          <div style={{ display: "flex" }}>
+          <div className="content">
             <Navbar />
-            <div style={{ flex: 1, paddingBottom: "30px" }}>
+            <div className="main-content">
               <PatientList />
             </div>
           </div>
@@ -64,9 +65,9 @@ function AppRoutes() {
       <Route
         path="/patient-profile"
         element={
-          <div style={{ display: "flex" }}>
+          <div className="content">
             <Navbar />
-            <div style={{ flex: 1, padding: "30px" }}>
+            <div className="main-content">
               <PatientProfile />
             </div>
           </div>

@@ -167,3 +167,22 @@ body {
     }
 
   } 
+
+  @media (max-width: 375px) {
+
+      .signin-header-link h3 {
+          font-size: medium;
+      }
+
+      .signin-header h1 {
+          font-size: larger;
+      }
+
+      .signin-button {
+          padding: 0 30px 0 30px;
+      }
+
+      .signin-button h3 {
+          font-size: small;
+      }
+  }

@@ -35,7 +35,7 @@ function Navbar() {
       <div className={`navbar-container-one ${isNavVisible ? "visible" : ""}`}>
         <img className="nav-image" src={userimg} alt="" />
         <h3 className="doctor-details">Dr: xxxxxx</h3>
-        <h3 className="doctor-details">ID: 12345678</h3>
+        <h3 className="doctor-details">ID: 123456</h3>
       </div>
 
       <div className={`navbar-container-two ${isNavVisible ? "visible" : ""}`}>

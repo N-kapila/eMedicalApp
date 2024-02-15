@@ -102,18 +102,32 @@
     font-weight: bold;
     
   }
+@media screen and (max-width: 1366px) {
 
+  .dashboard-container-two {
+    padding: 50px;
+  }
+
+  .dashboard-container-two img {
+    height: 200px;
+    width: auto;
+  }
+}
   
 
 @media screen and (max-width: 768px) {
 
+  .dashboard-container{
+    padding: 0;
+  }
+
     .dashboard-container-one {
         width: auto;
+        height: 100%;
+        padding: 10px;
         flex-direction: column-reverse;
         align-items: center;
         justify-content: center;
-        padding-top: 100px;
-        padding-bottom: 100px;
         margin-bottom: 50px;
     }
 
@@ -133,7 +147,7 @@
     width: auto;
     align-items: center;
     justify-content: center;
-    margin: 30px 0px;
+    margin: 30px 0px 50px;
   }
 
   .dashboard-container-two img {
@@ -150,7 +164,9 @@
   .dashboard-container-three {
     width: auto;
     margin-left: 0;
-    margin-top: 20px;
+    margin-top: 40px;
+    padding: 0;
+    padding-bottom: 30px;
   }
 
   .dashboard-header {
@@ -171,4 +187,31 @@
   .patient-table {
     margin-top: 5px;
   }
+}
+
+@media (max-width: 375px) {
+
+  
+  .dashboard-container-one{
+    padding: 20px;
+    padding-left: 0;
+    width: 60%;
+  }
+  .dashboard-container-one h1{
+    font-size: medium;
+  }
+
+  .dashboard-container-two{
+    width: 80%;
+    padding-left: 0;
+    padding: 20px;
+  }
+
+  .dashboard-container-three{
+    width: auto;
+  }
+
+    .patient-table{
+      width: auto;
+    }
 }

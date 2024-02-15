@@ -86,11 +86,11 @@
   }
   
   .signout-button {
-    background-color: #5cb85c; 
+    background-color: #29f529;
   }
   
   .delete-button {
-    background-color: #d9534f;
+    background-color: #f0140d;
   }
   
   .edit-button:hover{
@@ -105,7 +105,37 @@
   .delete-button:hover {
     background-color: #740400;
   }
+@media screen and (max-width: 1366px) {
+  .profile-container-two {
+    width: 100%;
+  }
 
+  .profile-container-three {
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 950px) {
+
+  .profile-container-two {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .edit-button,
+  .save-button,
+  .signout-button,
+  .delete-button {
+    width: 25%;
+    padding: 3px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+}
 
   @media screen and (max-width: 768px) {
 
@@ -150,7 +180,7 @@
     .save-button,
     .signout-button,
     .delete-button {
-      width: 100%; /* Make all buttons the same width */
+      width: 25%; /* Make all buttons the same width */
       padding: 3px; 
       margin-bottom: 10px; 
       font-size: 12px; 
@@ -158,4 +188,34 @@
   
   }
   
+    @media (max-width: 375px) {
+  
+      .profile-container h1 {
+  
+        font-size: xx-large;
+      }
+  
+      .profile-container-two {
+        padding-left: 0;
+        padding-right: 0;
+        width: 90%;
+      }
+
+      .profile-container-two>div {
+              padding-left: 0;
+            }
+  
+      .field-container p {
+        width: 100px;
+        margin-right: 0;
+      }
+
+      .edit-button,
+            .save-button,
+            .signout-button,
+            .delete-button {
+              width: 50%;
+            }
+
+    }
   

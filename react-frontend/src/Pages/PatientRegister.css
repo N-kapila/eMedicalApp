@@ -56,7 +56,13 @@
         align-items: center;
         justify-content: center;
         padding: 0;
+        margin-top: 350px;
     }
+
+    .register-patient h1 {
+              font-size: xxx-large;
+          }
+
     .patient-container {
       flex-direction: column;
     }
@@ -67,3 +73,21 @@
     }
     
   }
+
+   @media (max-width: 375px) {
+    .register-patient {
+        margin-top: 420px;
+    }
+
+     .register-patient h1 {
+            font-size: xx-large;
+        }
+
+     .patient-container-one {
+        margin-left: 120px;
+     }
+
+     .register-button {
+    padding: 1px 50px 1px 50px;
+     }
+   }

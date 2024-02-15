@@ -66,7 +66,7 @@ function DoctorRegister() {
           </div>
         </div>
 
-        <div className="containers">
+        <div className="footer-container">
           <div className="profile-section">
             {profilePic && (
               <div>

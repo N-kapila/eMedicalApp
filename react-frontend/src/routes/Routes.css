@@ -1,0 +1,25 @@
+.content{
+    display: flex;
+}
+
+.main-content{
+    margin-left: 20vw;
+    height:calc(100vh - 1rem);
+    overflow-x: auto;
+    flex-grow: 1;
+}
+
+@media screen and (max-width: 768px) {
+
+ .main-content{
+    margin-left: 0;
+    flex: 1;
+    padding: 30px;
+ }
+}
+
+ @media (max-width: 375px) {
+    .main-content{
+        padding-left: 0;
+    }
+ }
