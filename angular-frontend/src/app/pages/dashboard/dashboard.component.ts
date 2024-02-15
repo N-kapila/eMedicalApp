@@ -53,7 +53,7 @@ currentMonth: string= '';
   }
 
   navigateToPatientList() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/patient-list']);
   }
 
   data = [

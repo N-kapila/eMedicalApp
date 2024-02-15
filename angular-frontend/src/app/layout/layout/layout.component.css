@@ -12,11 +12,6 @@
     margin: 0;
 }
 
-@media screen and (max-width: 1366px) {
-    .main-content {
-    width: auto;
-    }
-}
 
 @media (max-width: 768px) {
 

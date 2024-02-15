@@ -1,0 +1,110 @@
+.list-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+}
+
+.list-container h1 {
+    color: var(--primary-color);
+    padding: 10px;
+    font-size: xxx-large;
+}
+
+.list-container-one {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px;
+    padding-right: 50px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
+    width: 200px;
+    margin-right: 20px;
+}
+
+input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 5px;
+}
+
+.search-icon {
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.list-container-two {
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+}
+
+.patient-table-container {
+    width: 100%;
+}
+
+.patient-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size:larger;
+}
+
+.patient-table th,
+.patient-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.patient-table th {
+    background-color: #dedddd;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+
+    .list-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 0;
+    }
+
+    .list-container h1 {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .list-container-two {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 375px) {
+    .list-container h1 {
+            padding: 10px;
+            font-size: xx-large;
+        }
+
+    .list-container-two {
+        width: 50%;
+    }
+}

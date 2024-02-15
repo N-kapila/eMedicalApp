@@ -10,7 +10,6 @@
     color: var(--primary-color);
     padding: 10px;
     font-size: xxx-large;
-    margin: 0;
 }
 
 .profile-container-one {
@@ -30,6 +29,7 @@
     align-items: center;
     justify-content: center;
     padding: 50px;
+    width: 90%;
 }
 
 .profile-container-two>div {
@@ -111,8 +111,7 @@
 
 @media screen and (max-width: 1366px) {
     .profile-container-two {
-        width: auto;
-        padding-left: 100px
+        width: 100%;
     }
 
     .profile-container-three {
@@ -123,14 +122,12 @@
 
 @media screen and (max-width: 950px) {
 
-
     .profile-container-two {
     flex-direction: column;
         align-items: center;
         justify-content: center;
-    
+        padding: 0;
     }
-
         .edit-button,
         .save-button,
         .signout-button,
@@ -141,12 +138,10 @@
             font-size: 12px;
             margin-right: 10px;
         }
-
-}
+} 
 
 
 @media screen and (max-width: 768px) {
-
 
     .profile-container {
         display: flex;
@@ -197,13 +192,16 @@
 }
 
 @media (max-width: 375px) {
-    .profile-container {
-        width: auto;
+    
+.profile-container h1 {
+       
+        font-size: xx-large;
     }
 
     .profile-container-two {
       margin-left: 75px;
       padding-right: 0;
+      width: 75%;
     }
 
     .field-container p {

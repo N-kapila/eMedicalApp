@@ -23,6 +23,6 @@ img2: string = '../assets/image2.png';
   }
 
   handleClick(): void {
-    this.router.navigateByUrl('doctor-register');
+    this.router.navigateByUrl('dashboard');
   }
 }

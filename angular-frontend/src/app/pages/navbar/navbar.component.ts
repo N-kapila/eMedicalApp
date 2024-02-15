@@ -22,8 +22,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(private router: Router) {}
 
-  navigateToDoctorSignin() {
-    this.router.navigate(['/doctor-signin']);
+   navigateToPatientList(){
+    this.router.navigate(['/patient-list'])
   }
 
   navigateToPatientRegister() {
@@ -34,16 +34,21 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/dashboard']);
   }
 
-  navigateToDoctorProfile(){
+   navigateToDoctorProfile(){
     this.router.navigate(['/doctor-profile'])
   }
 
 ngOnInit(): void {
+    this.setActiveLink();
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.activeLink = event.url;
+        this.setActiveLink();
       }
     });
+  }
+
+   setActiveLink(): void {
+    this.activeLink = this.router.url;
   }
 
   toggleNavVisibility() {
