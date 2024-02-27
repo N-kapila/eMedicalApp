@@ -1,26 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+   
+    <!-- <TextField placeholder="Small TextField" size="small" v-model="smallTextValue" /><br/>
+    <TextField placeholder="Medium TextField" size="medium" v-model="mediumTextValue" /><br/>
+    <TextField placeholder="Large TextField" size="large" v-model="largeTextValue" /> -->
+    <PasswordInput placeholder="Enter Password" v-model="password" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TextField from './components/TextFields.vue';
+import PasswordInput from './components/PasswordTextField.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TextField,
+    PasswordInput
+  },
+  data() {
+    return {
+       smallTextValue: '',
+       mediumTextValue: '',
+       largeTextValue: '',
+        password: ''
+
+    };
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Arial, sans-serif;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 </style>
