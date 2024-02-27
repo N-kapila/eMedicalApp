@@ -67,4 +67,17 @@ export default {
     transform: translateY(-50%);
     cursor: pointer;
   }
+
+  @media screen and (max-width: 492px) {
+ .password-input{
+        width: 300px;
+    }
+  }
+
+  @media (max-width: 300px) {
+     .password-input {
+        width: 200px;
+        height: 20px;
+      }
+  }
 </style>
