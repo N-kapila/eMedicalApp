@@ -1,43 +1,42 @@
 <template>
   <div id="app">
-   
     <!-- <TextField placeholder="Small TextField" size="small" v-model="smallTextValue" /><br/>
     <TextField placeholder="Medium TextField" size="medium" v-model="mediumTextValue" /><br/>
     <TextField placeholder="Large TextField" size="large" v-model="largeTextValue" /> -->
     <!-- <PasswordInput placeholder="Enter Password" v-model="password" /> -->
-  <SelectTextField :options="options" v-model="selectedOption" placeholder="Select an option" />
-
-
+    <!-- <SelectTextField :options="options" v-model="selectedOption" placeholder="Select an option" /> -->
+    <DoctorRegister />
   </div>
 </template>
 
 <script>
-import TextField from './components/TextFields.vue';
-import PasswordInput from './components/PasswordTextField.vue'
-import SelectTextField from './components/SelectTextField.vue';
+import TextField from "./components/TextFields.vue";
+import PasswordInput from "./components/PasswordTextField.vue";
+import SelectTextField from "./components/SelectTextField.vue";
+import DoctorRegister from "./Pages/DoctorRegister.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     TextField,
     PasswordInput,
-    SelectTextField
+    SelectTextField,
+    DoctorRegister,
   },
   data() {
     return {
-       smallTextValue: '',
-       mediumTextValue: '',
-       largeTextValue: '',
-        password: '',
-selectedOption: '',
+      smallTextValue: "",
+      mediumTextValue: "",
+      largeTextValue: "",
+      password: "",
+      selectedOption: "",
       options: [
-        { value: 'option1', label: 'Option 1' },
-        { value: 'option2', label: 'Option 2' },
-        { value: 'option3', label: 'Option 3' }
-      ]
-
+        { value: "option1", label: "Option 1" },
+        { value: "option2", label: "Option 2" },
+        { value: "option3", label: "Option 3" },
+      ],
     };
-  }
+  },
 };
 </script>
 

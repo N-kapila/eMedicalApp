@@ -47,7 +47,7 @@ export default {
 
 <style scoped>
 .password-input-container {
-    position:absolute;
+    position:relative;
     margin-bottom: 10px;
   }
   
