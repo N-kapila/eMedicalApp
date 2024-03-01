@@ -30,7 +30,7 @@
           <router-link to="#"> Forgot Password? </router-link>
         </div>
         <div class="Signin-button-section">
-          <button class="signin-button" onClick="{handleSignInClick}">
+          <button class="signin-button" @click="handleSignInClick">
             <h2>Sign in</h2>
           </button>
         </div>
@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     handleSignInClick() {
-      this.$router.push("/");
+      this.$router.push("/navbar");
     },
   },
 };
@@ -107,11 +107,12 @@ export default {
   padding: 20px;
 }
 
-.signin-header-link router-link {
+.signin-header-link a {
+  color: white !important;
   cursor: pointer;
-  color: aliceblue;
   text-decoration: underline;
 }
+
 
 .create-account-heading {
   color: white;
@@ -145,9 +146,11 @@ export default {
   gap: 15px;
 }
 
-.signin-textfield-container router-link {
-  color: aliceblue;
+
+.signin-textfield-container .router-link-active {
+  color: white;
   cursor: pointer;
+  text-decoration: none;
 }
 .Signin-button-section {
   display: flex;

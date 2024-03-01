@@ -7,7 +7,7 @@
     <div class="container-two">
       <div class="signup-header">
         <h4>Already have an account?</h4>
-        <router-link to="/">Sign in</router-link>
+        <router-link to="/doctor-signin">Sign in</router-link>
       </div>
 
       <div class="header">

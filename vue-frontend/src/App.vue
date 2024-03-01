@@ -5,7 +5,7 @@
     <TextField placeholder="Large TextField" size="large" v-model="largeTextValue" /> -->
     <!-- <PasswordInput placeholder="Enter Password" v-model="password" /> -->
     <!-- <SelectTextField :options="options" v-model="selectedOption" placeholder="Select an option" /> -->
-    <Navbar />
+   <router-view/>
   </div>
 </template>
 
