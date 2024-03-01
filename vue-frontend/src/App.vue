@@ -5,7 +5,7 @@
     <TextField placeholder="Large TextField" size="large" v-model="largeTextValue" /> -->
     <!-- <PasswordInput placeholder="Enter Password" v-model="password" /> -->
     <!-- <SelectTextField :options="options" v-model="selectedOption" placeholder="Select an option" /> -->
-    <DoctorSignin />
+    <Navbar />
   </div>
 </template>
 
@@ -15,6 +15,7 @@ import PasswordInput from "./components/PasswordTextField.vue";
 import SelectTextField from "./components/SelectTextField.vue";
 import DoctorRegister from "./Pages/DoctorRegister.vue";
 import DoctorSignin from "./Pages/DoctorSignin.vue";
+import Navbar from "./Pages/Navbar.vue";
 
 export default {
   name: "App",
@@ -23,7 +24,8 @@ export default {
     PasswordInput,
     SelectTextField,
     DoctorRegister,
-    DoctorSignin
+    DoctorSignin,
+    Navbar
   },
   data() {
     return {
