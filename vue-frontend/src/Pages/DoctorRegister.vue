@@ -108,10 +108,20 @@ import TextField from "../components/TextFields.vue";
 import PasswordInput from "../components/PasswordTextField.vue";
 
 export default {
+  mounted() {
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+  },
+  beforeUnmount() {
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+  },
   data() {
     return {
       img1: img1,
       profilePic: null,
+      largeTextValue: "",
+      password: "",
     };
   },
   components: {

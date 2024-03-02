@@ -2,7 +2,8 @@ import { createWebHistory, createRouter } from "vue-router";
 import DoctorRegister from "../Pages/DoctorRegister.vue";
 import DoctorSignin from "../Pages/DoctorSignin.vue";
 import Navbar from "../Pages/Navbar.vue";
-//import PatientRegister from "./components/PatientRegister.vue";
+import DoctorProfile from "../Pages/DoctorProfile.vue";
+import Dashboard from "../Pages/Dashboard.vue";
 
 const routes = [
   {
@@ -21,19 +22,14 @@ const routes = [
     path: "/navbar",
     component: Navbar,
   },
-  //   {
-  //     path: "/patient-register",
-  //     component: {
-  //       template: `
-  //         <div class="content">
-  //           <Navbar />
-  //           <div class="main-content">
-  //              <PatientRegister />
-  //           </div>
-  //         </div>
-  //       `,
-  //     },
-  //   },
+  {
+    path: "/doctor-profile",
+    component: DoctorProfile,
+  },
+  {
+    path: "/dashboard",
+    component: Dashboard,
+  },
 ];
 
 const router = createRouter({

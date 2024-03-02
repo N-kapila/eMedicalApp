@@ -1,54 +1,78 @@
 <template>
-  <div id="app">
-    <!-- <TextField placeholder="Small TextField" size="small" v-model="smallTextValue" /><br/>
-    <TextField placeholder="Medium TextField" size="medium" v-model="mediumTextValue" /><br/>
-    <TextField placeholder="Large TextField" size="large" v-model="largeTextValue" /> -->
-    <!-- <PasswordInput placeholder="Enter Password" v-model="password" /> -->
+  <div class="app">
     <!-- <SelectTextField :options="options" v-model="selectedOption" placeholder="Select an option" /> -->
-   <router-view/>
+    <Navbar v-if="showNavbar" />
+    <div :class="{ 'main-content': showMainContent }">
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
-import TextField from "./components/TextFields.vue";
-import PasswordInput from "./components/PasswordTextField.vue";
 import SelectTextField from "./components/SelectTextField.vue";
-import DoctorRegister from "./Pages/DoctorRegister.vue";
-import DoctorSignin from "./Pages/DoctorSignin.vue";
 import Navbar from "./Pages/Navbar.vue";
-
 export default {
   name: "App",
   components: {
-    TextField,
-    PasswordInput,
     SelectTextField,
-    DoctorRegister,
-    DoctorSignin,
-    Navbar
+    Navbar,
   },
   data() {
     return {
-      smallTextValue: "",
-      mediumTextValue: "",
-      largeTextValue: "",
-      password: "",
       selectedOption: "",
       options: [
         { value: "option1", label: "Option 1" },
         { value: "option2", label: "Option 2" },
         { value: "option3", label: "Option 3" },
       ],
+      showNavbar: false,
+      showMainContent: false,
     };
+  },
+
+  watch: {
+    $route(to, from) {
+      if (
+        to.path === "/doctor-register" ||
+        to.path === "/doctor-signin" ||
+        to.path === "/"
+      ) {
+        this.showNavbar = false;
+        this.showMainContent = false;
+      } else {
+        this.showNavbar = true;
+        this.showMainContent = true;
+      }
+    },
   },
 };
 </script>
 
 <style>
+.app {
+   height: 100%;
+    display: flex;
+    align-items: flex-start;
+}
 
-#app {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin-top: 0px;
+.main-content {
+  margin-left: 20vw;
+  height: calc(100vh - 1rem);
+  overflow-x: auto;
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    flex: 1;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 375px) {
+  .main-content {
+    padding-left: 0;
+  }
 }
 </style>

@@ -45,6 +45,14 @@ import TextField from "../components/TextFields.vue";
 import PasswordInput from "../components/PasswordTextField.vue";
 
 export default {
+  mounted() {
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+  },
+  beforeUnmount() {
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+  },
   data() {
     return {
       img2: img2,
@@ -56,18 +64,19 @@ export default {
   },
   methods: {
     handleSignInClick() {
-      this.$router.push("/navbar");
+      this.$router.push("/dashboard");
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
 .signin-container {
   display: flex;
   flex-direction: row;
+  padding-bottom: 10px;
+  width: 100vw;
   height: 100vh;
-  width: 100%;
 }
 
 .signin-container-one {
@@ -95,9 +104,12 @@ export default {
 .signin-container-two {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+   height: 100%;
+  min-height: 0;
   width: 60%;
   background-color: var(--primary-color);
+  overflow: hidden; 
+  box-sizing: border-box;
 }
 
 .signin-header-link {
@@ -112,7 +124,6 @@ export default {
   cursor: pointer;
   text-decoration: underline;
 }
-
 
 .create-account-heading {
   color: white;
@@ -145,7 +156,6 @@ export default {
   justify-content: center;
   gap: 15px;
 }
-
 
 .signin-textfield-container .router-link-active {
   color: white;
