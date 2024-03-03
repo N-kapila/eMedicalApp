@@ -14,19 +14,19 @@
     </div>
 
     <div class="navbar-container-two" :class="{ visible: isNavVisible }">
-      <router-link to="/dashboard" class="nav-link" @click="closeNav">
+      <router-link to="/dashboard" class="nav-link" :class="{ 'active-link': isLinkActive('/dashboard') }" @click="closeNav">
         <font-awesome-icon icon="home" />
         Dashboard
       </router-link>
-      <router-link to="/doctor-profile" class="nav-link" @click="closeNav">
+      <router-link to="/doctor-profile" class="nav-link" :class="{ 'active-link': isLinkActive('/doctor-profile') }" @click="closeNav">
         <font-awesome-icon icon="user" />
         My Profile
       </router-link>
-      <router-link to="/patient-register" class="nav-link" @click="closeNav">
+      <router-link to="/patient-register" class="nav-link" :class="{ 'active-link': isLinkActive('/patient-register') }" @click="closeNav">
         <font-awesome-icon icon="clipboard-list" />
         Patient Registration
       </router-link>
-      <router-link to="/patient-list" class="nav-link" @click="closeNav">
+      <router-link to="/patient-list" class="nav-link" :class="{ 'active-link': isLinkActive('/patient-list') }" @click="closeNav">
         <font-awesome-icon icon="list" />
         Patient List
       </router-link>
@@ -71,11 +71,16 @@ export default {
       isNavVisible.value = false;
     };
 
+     const isLinkActive = (path) => {
+      return route.path === path;
+    };
+
     return {
       isNavVisible,
       toggleNavVisibility,
       closeNav,
       route,
+      isLinkActive
     };
   },
 };
@@ -89,7 +94,6 @@ export default {
   bottom: 0;
   width: 20vw;
   max-width: 300px;
-  min-width: 225px;
 }
 
 .navbar-container-one {
@@ -171,7 +175,7 @@ export default {
   .nav-link {
     padding-left: 10px;
     margin-left: 0;
-    white-space: nowrap;
+    /* white-space: nowrap; */
   }
   .navbar-container-one {
     padding: 20px;

@@ -50,9 +50,9 @@ export default {
 
 <style>
 .app {
-   height: 100%;
-    display: flex;
-    align-items: flex-start;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
 }
 
 .main-content {
@@ -66,7 +66,6 @@ export default {
   .main-content {
     margin-left: 0;
     flex: 1;
-    padding: 30px;
   }
 }
 

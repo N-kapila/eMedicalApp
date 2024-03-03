@@ -1,8 +1,8 @@
 <template>
   <div class="profile-container">
-   <div class="heading-container">
-        <h1>My Profile</h1>
-      </div>
+    <div class="heading-container">
+      <h1>My Profile</h1>
+    </div>
     <div class="profile-container-one">
       <img class="user-image" :src="user" alt="" />
     </div>
@@ -80,8 +80,8 @@ export default {
   padding: 10px;
 }
 
-.heading-container{
-    align-self: flex-start;
+.heading-container {
+  align-self: flex-start;
 }
 
 .profile-container h1 {
@@ -194,9 +194,8 @@ export default {
 }
 
 @media screen and (max-width: 950px) {
-
   .profile-container h1 {
-padding-left: 70px;
+    padding-left: 70px;
   }
   .profile-container-two {
     flex-direction: column;
