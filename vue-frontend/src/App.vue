@@ -1,6 +1,5 @@
 <template>
   <div class="app">
-    <!-- <SelectTextField :options="options" v-model="selectedOption" placeholder="Select an option" /> -->
     <Navbar v-if="showNavbar" />
     <div :class="{ 'main-content': showMainContent }">
       <router-view />
@@ -9,28 +8,20 @@
 </template>
 
 <script>
-import SelectTextField from "./components/SelectTextField.vue";
 import Navbar from "./Pages/Navbar.vue";
 export default {
   name: "App",
   components: {
-    SelectTextField,
     Navbar,
   },
   data() {
     return {
-      selectedOption: "",
-      options: [
-        { value: "option1", label: "Option 1" },
-        { value: "option2", label: "Option 2" },
-        { value: "option3", label: "Option 3" },
-      ],
       showNavbar: false,
       showMainContent: false,
     };
   },
 
-  watch: {
+ watch: {
     $route(to, from) {
       if (
         to.path === "/doctor-register" ||

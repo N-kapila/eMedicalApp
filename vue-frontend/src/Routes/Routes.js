@@ -6,6 +6,7 @@ import DoctorProfile from "../Pages/DoctorProfile.vue";
 import Dashboard from "../Pages/Dashboard.vue";
 import PatientList from "../Pages/PatientList.vue";
 import PatientRegister from "../Pages/PatientRegister.vue";
+import PatientProfile from "../Pages/PatientProfile.vue";
 
 const routes = [
   {
@@ -39,6 +40,10 @@ const routes = [
   {
     path: "/patient-register",
     component: PatientRegister,
+  },
+  {
+    path: "/patient-profile",
+    component: PatientProfile,
   },
 ];
 
