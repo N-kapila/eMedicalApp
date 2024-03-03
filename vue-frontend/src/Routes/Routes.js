@@ -5,6 +5,7 @@ import Navbar from "../Pages/Navbar.vue";
 import DoctorProfile from "../Pages/DoctorProfile.vue";
 import Dashboard from "../Pages/Dashboard.vue";
 import PatientList from "../Pages/PatientList.vue";
+import PatientRegister from "../Pages/PatientRegister.vue";
 
 const routes = [
   {
@@ -34,6 +35,10 @@ const routes = [
   {
     path: "/patient-list",
     component: PatientList,
+  },
+  {
+    path: "/patient-register",
+    component: PatientRegister,
   },
 ];
 
