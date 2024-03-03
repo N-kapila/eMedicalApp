@@ -4,6 +4,7 @@ import DoctorSignin from "../Pages/DoctorSignin.vue";
 import Navbar from "../Pages/Navbar.vue";
 import DoctorProfile from "../Pages/DoctorProfile.vue";
 import Dashboard from "../Pages/Dashboard.vue";
+import PatientList from "../Pages/PatientList.vue";
 
 const routes = [
   {
@@ -29,6 +30,10 @@ const routes = [
   {
     path: "/dashboard",
     component: Dashboard,
+  },
+  {
+    path: "/patient-list",
+    component: PatientList,
   },
 ];
 
