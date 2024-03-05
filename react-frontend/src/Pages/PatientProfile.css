@@ -1,4 +1,4 @@
-.patient-profile-container{
+.patient-profile-container {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -6,20 +6,20 @@
     padding: 10px;
 }
 
-.patient-profile-container h1{
+.patient-profile-container h1 {
     color: var(--primary-color);
     padding: 10px;
-    font-size:xxx-large;
-    margin: 0;
+    font-size: xxx-large;
 }
 
-.patient-profile-container-one{
+.patient-profile-container-one {
     display: flex;
     justify-content: space-around;
     padding: 10px;
+    margin-bottom: 50px;
 }
 
-.patient-profile-container-two{
+.patient-profile-container-two {
     display: flex;
     justify-content: space-evenly;
     align-items: center;

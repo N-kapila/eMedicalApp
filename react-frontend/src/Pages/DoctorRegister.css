@@ -1,158 +1,151 @@
 .container {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.container-one {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 30vw;
+}
+
+.container-two {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  border-left: 1px solid #ccc;
+}
+
+.signup-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px 20px 0 0;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 20px;
+}
+
+.textField-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textField-container > div {
+  flex: 1;
+  padding-left: 50px;
+}
+
+.textField-container-one {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-left: 20px;
+}
+
+.footer-container {
+  display: flex;
+  margin-top: 40px;
+}
+
+.footer-container > div {
+  flex: 1;
+}
+
+.profile-section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.profile-pic-container {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.button-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.signup-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1px 50px 1px 50px;
+  border: 0;
+  border-radius: 10px;
+}
+
+.signup-button:hover {
+  background-color: #903e00;
+}
+
+label {
+  border: 1px solid black;
+  padding: 4px;
+  border-radius: 5%;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+@media screen and (max-width: 1366px) {
+  .container-one {
+    display: none;
+  }
+
+  .container-two {
     display: flex;
-    flex-direction: row;
-    padding-bottom: 10px;
+    border: 0;
     width: 100%;
+    margin-left: 20px;
   }
+}
 
-  .container-one{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height:100vh;
-    width:30vw;
-  }
-
-  .container-two{
-    display: flex;
+/* 768px is standard point */
+@media screen and (max-width: 768px) {
+  .container {
     flex-direction: column;
-    width: 70vw;
-    border-left: 1px solid #ccc;
   }
 
-  .signup-header{
-    display: flex;
-    justify-content:flex-end;
-    align-items: center;
-    padding: 20px 20px 0 0;
+  .container-one {
+    display: none;
   }
 
-  .header{
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding-left:  20px ;
-  }
-
-  .textField-container{
-    display: flex;
+  .header {
     align-items: center;
     justify-content: center;
   }
 
-  .textField-container > div{
-    flex: 1;
-    padding-left: 50px;
-  }
-
-  .textField-container-one{
-    display: flex;
-    align-items: flex-start;
+  .textField-container {
     flex-direction: column;
-    padding-left: 20px,
+    align-items: center;
   }
 
   .footer-container {
-    display: flex;
-    margin-top: 40px;
-  }
-  
-  .footer-container > div {
-    flex: 1;
-  }
-  
-  .profile-section {
-    align-items: center;
-    display: flex;
     flex-direction: column;
-    margin-top: 50px;
   }
-  
-  .profile-pic-container {
-    width: 150px;
-    height: 150px;
-    overflow: hidden;
-    border-radius: 50%;
-    padding: 20px;
-  }
-  
-  .profile-pic {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-
-  
-  .button-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
-    
-  }
-  
-  .signup-button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1px 50px 1px 50px;
-    border: 0;
-    border-radius: 10px;
-  }
-
-  .signup-button:hover{
-    background-color: #903e00; 
-  }
-
-  label {
-    border: 1px solid black;
-    padding: 4px;
-    border-radius: 5%;
-  }
-  
-  input[type="file"] {
-    display: none;
-  }
-  
-
-  @media screen and (max-width: 1366px) {
-    .container-one {
-      display: none;
-    }
-
-    .container-two{
-      display: flex;
-      border: 0;
-      width: 100%;
-      margin-left: 20px;
-    }
-
-  }
-  
-  /* 768px is standard point */
-  @media screen and (max-width: 768px) {
-    .container {
-      flex-direction: column;
-    }
-
-    .container-one {
-        display: none;
-      }
-
-    .header{
-        align-items: center;
-        justify-content: center;
-        }
-
-    .textField-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-   .footer-container{
-    flex-direction: column;
-   }
-    
-  }
-
- 
+}
