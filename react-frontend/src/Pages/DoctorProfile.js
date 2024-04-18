@@ -1,9 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./DoctorProfile.css";
 import userimg from "../assets/user.png";
+import { doc, getDoc } from "firebase/firestore";
 import { MediumTextField } from "../Components/Textfeilds";
+import { db } from "../firebase-config";
 
 function DoctorProfile() {
+  const [doctorDetails, setDoctorDetails] = useState({
+    fullName: "",
+    doctorId: "",
+    speciality: "",
+    email: "",
+    mobileNumber: "",
+    hospitalName: "",
+  });
+
+  useEffect(() => {
+    // Function to fetch doctor details from Firestore
+    const fetchDoctorDetails = async () => {
+      try {
+        const doctorRef = doc(db, "react-doctor-details", "doctorId");
+        const doctorSnap = await getDoc(doctorRef);
+        if (doctorSnap.exists()) {
+          const data = doctorSnap.data();
+          setDoctorDetails(data);
+        } else {
+          console.log("No doctor details found");
+        }
+      } catch (error) {
+        console.error("Error fetching doctor details:", error);
+      }
+    };
+
+    // Call fetchDoctorDetails function when component mounts
+    fetchDoctorDetails();
+  }, []);
+
   return (
     <div className="profile-container">
       <h1>My Profile</h1>
@@ -15,29 +47,29 @@ function DoctorProfile() {
         <div className="profile-textfield-container">
           <div className="field-container">
             <p>Full Name:</p>
-            <MediumTextField />
+            <MediumTextField value={doctorDetails.fullName} readOnly />
           </div>
           <div className="field-container">
             <p>Doctor Id:</p>
-            <MediumTextField />
+            <MediumTextField value={doctorDetails.doctorId} readOnly />
           </div>
           <div className="field-container">
             <p>Speciality:</p>
-            <MediumTextField />
+            <MediumTextField value={doctorDetails.speciality} readOnly />
           </div>
         </div>
         <div className="profile-textfield-container">
           <div className="field-container">
             <p>Email:</p>
-            <MediumTextField />
+            <MediumTextField value={doctorDetails.email} readOnly />
           </div>
           <div className="field-container">
             <p>Mobile Number:</p>
-            <MediumTextField />
+            <MediumTextField value={doctorDetails.mobileNumber} readOnly />
           </div>
           <div className="field-container">
             <p>Hospital Name:</p>
-            <MediumTextField />
+            <MediumTextField value={doctorDetails.hospitalName} readOnly />
           </div>
         </div>
       </div>
