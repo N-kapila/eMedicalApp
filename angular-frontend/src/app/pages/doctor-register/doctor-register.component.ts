@@ -8,7 +8,7 @@ import { TextfieldsComponent } from '../../../components/textfields/textfields.c
   standalone: true,
   imports: [TextfieldsComponent,CommonModule],
   templateUrl: './doctor-register.component.html',
-  styleUrl: './doctor-register.component.css'
+  styleUrl: './doctor-register.component.css',
 })
 export class DoctorRegisterComponent {
   img1: string = '../assets/image1.png';
