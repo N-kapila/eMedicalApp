@@ -23,8 +23,8 @@ function DoctorSignin() {
 
       //console.log("User UID:", user.uid);
       // Clear form fields and error state upon successful sign-in
-      setEmail("");
-      setPassword("");
+      setEmail(""); //nirmalkapilarathne1998@gmail.com
+      setPassword(""); //Doctor001
       setError(null);
 
       window.location.href = "/dashboard";
