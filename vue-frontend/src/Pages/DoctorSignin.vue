@@ -22,11 +22,16 @@
 
         <div class="signin-textfield-container">
           <TextField
-            size="large"
-            v-model="largeTextValue"
-            placeholder="Enter your Email"
-          />
-          <PasswordInput v-model="password" placeholder="Enter your password" />
+              size="large"
+              :value="email"
+              @update:value="updateEmail"
+              placeholder="Enter email address"
+            />
+          <PasswordInput
+              :value="password"
+              @update:value="updatePassword"
+              placeholder="Enter password"
+            />
           <router-link to="#"> Forgot Password? </router-link>
         </div>
         <div class="Signin-button-section">
@@ -43,6 +48,8 @@
 import img2 from "../assets/image2.png";
 import TextField from "../components/TextFields.vue";
 import PasswordInput from "../components/PasswordTextField.vue";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/firebase";
 
 export default {
   mounted() {
@@ -56,6 +63,8 @@ export default {
   data() {
     return {
       img2: img2,
+      email: "",
+      password: "",
     };
   },
   components: {
@@ -63,9 +72,31 @@ export default {
     PasswordInput,
   },
   methods: {
-    handleSignInClick() {
-      this.$router.push("/dashboard");
+     updateEmail(newValue) {
+      this.email = newValue;
     },
+    updatePassword(newValue) {
+      this.password = newValue;
+    },
+
+    async handleSignInClick() {
+      try {
+        
+        const userCredential = await signInWithEmailAndPassword(
+          auth,
+          this.email, //rashini@gmail.com
+          this.password //Rash999
+        );
+        // If sign-in is successful, redirect to dashboard
+        if (userCredential) {
+          this.$router.push("/dashboard");
+        }
+      } catch (error) {
+        console.error("Error signing in:", error);
+        alert("Error signing in: " + error.message);
+      }
+    },
+  
   },
 };
 </script>
