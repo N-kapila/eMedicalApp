@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TextfieldsComponent } from '../../../components/textfields/textfields.component';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-doctor-signin',
@@ -11,9 +12,39 @@ import { TextfieldsComponent } from '../../../components/textfields/textfields.c
 })
 export class DoctorSigninComponent {
 img2: string = '../assets/image2.png';
+email: string = '';
+  password: string = '';
 
- constructor(private router: Router) {}
+  updateEmail(event: any) {
+    if (event.target) {
+      this.email = event.target.value;
+    }
+  }
 
+  updatePassword(event: any) {
+    if (event.target) {
+      this.password = event.target.value;
+    }
+  }
+
+
+ constructor(private router: Router,private authService: AuthService) {}
+
+ signIn() {
+    this.authService.signIn(this.email, this.password).subscribe(
+      (userCredential) => {
+        // Sign-in successful, you can navigate or perform other actions here
+        console.log('Signed in successfully!', userCredential.user);
+        this.router.navigateByUrl('dashboard');
+      },
+      (error) => {
+        // Handle sign-in errors here
+        console.error('Sign-in error:', error);
+        alert('Sign-in error:'+ error.message)
+      }
+    );
+ }
+ 
   navigateToDoctorSignup() {
     this.router.navigate(['/']);
   }
@@ -22,7 +53,7 @@ img2: string = '../assets/image2.png';
     this.router.navigate([]);
   }
 
-  handleClick(): void {
-    this.router.navigateByUrl('dashboard');
-  }
+  // handleClick(): void {
+  //   this.router.navigateByUrl('dashboard');
+  // }
 }

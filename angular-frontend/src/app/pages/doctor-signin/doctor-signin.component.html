@@ -21,18 +21,27 @@
       </div>
 
       <div class="signin-textfield-container">
-        <app-textfields type="text" size="lg" placeholder="Enter your email" />
+        <app-textfields
+          type="text"
+          size="lg"
+          placeholder="Enter your email"
+          [value]="email"
+          (input)="updateEmail($event)"
+        />
         <br />
         <app-textfields
           type="password"
           size="lg"
           placeholder="Enter Password"
-        /><br />
+          [value]="password"
+          (input)="updatePassword($event)"
+        />
+        <br />
         <a (click)="navigateToForgotPassword()"> Forgot Password? </a>
       </div>
 
       <div class="Signin-button-section">
-        <button class="signin-button" (click)="handleClick()">
+        <button class="signin-button" (click)="signIn()">
           <h3>Sign in</h3>
         </button>
       </div>
