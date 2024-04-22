@@ -1,59 +1,55 @@
-/* Updated CSS for DiagnosisSearch component */
 .diagnosis-search-container {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 .large-text-fields {
-    width: 100%;
-    padding: 8px;
-    font-size: 16px;
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
 }
 
 .diagnosis-search-container ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 .diagnosis-search-container ul li {
-    padding: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .diagnosis-search-container ul li:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 .diagnosis-search-container ul li:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .diagnosis-search-container .selected-diagnoses {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .diagnosis-search-container .selected-diagnoses p {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .diagnosis-search-container .selected-diagnoses ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    /* Align items at the start */
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .diagnosis-search-container .selected-diagnoses ul li {
-    padding: 5px;
-    border: 1px solid #ccc;
-    margin-bottom: 5px;
-    margin-right: 5px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    flex: 0 0 calc(33.33% - 10px);
-    /* Set the width of each item to 33.33% */
-    max-width: calc(33.33% - 10px);
-    /* Set the max-width to prevent overflow */
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  flex: 0 0 calc(33.33% - 10px);
+  max-width: calc(33.33% - 10px);
 }

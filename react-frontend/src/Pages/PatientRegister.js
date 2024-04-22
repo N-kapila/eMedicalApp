@@ -1,23 +1,9 @@
 import React from "react";
 import "./PatientRegister.css";
 import { LargeTextField } from "../Components/Textfeilds";
-import { useState } from "react";
 import { DiagnosisSearch } from "./DiagnosisSearch";
 
 function PatientRegister() {
-  const diseaseOptions = [
-    { value: "1", label: "Option 1" },
-    { value: "2", label: "Option 2" },
-    { value: "3", label: "Option 3" },
-  ];
-
-  // State to manage the selected value
-  const [selectedDisease, setSelectedDisease] = useState("");
-
-  // Handler for the onChange event
-  const handleDiseaseChange = (e) => {
-    setSelectedDisease(e.target.value);
-  };
   return (
     <div className="register-patient">
       <h1>Register Patient</h1>
