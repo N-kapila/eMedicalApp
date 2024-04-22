@@ -16,7 +16,8 @@
     "vue": "^3.2.13",
     "vue-event-calendar": "^1.5.2",
     "vue-router": "^4.3.0",
-    "vue3-calendar": "^0.1.2"
+    "vue3-calendar": "^0.1.2",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

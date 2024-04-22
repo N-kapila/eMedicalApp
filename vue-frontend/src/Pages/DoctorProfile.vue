@@ -7,36 +7,42 @@
       <img class="user-image" :src="user" alt="" />
     </div>
 
-    <div class="profile-container-two">
-      <div class="profile-textfield-container">
-        <div class="field-container">
-          <p>Full Name:</p>
-          <TextField size="medium" v-model="mediumTextValue" />
-        </div>
-        <div class="field-container">
-          <p>Doctor Id:</p>
-          <TextField size="medium" v-model="mediumTextValue" />
-        </div>
-        <div class="field-container">
-          <p>Speciality:</p>
-          <TextField size="medium" v-model="mediumTextValue" />
-        </div>
+   <div class="profile-container-two" >
+    <div class="profile-textfield-container" >
+      <div class="field-container">
+        <p>Full Name:</p>
+        <h3  v-if="userData">{{ userData.fullName }}</h3>
+      </div>
+      <div class="field-container">
+        <p>Doctor Id:</p>
+        <h3  v-if="userData"> {{ userData.doctorId }}</h3>
+        
+      </div>
+      <div class="field-container">
+        <p>Speciality:</p>
+        <h3  v-if="userData"> {{ userData.speciality }}</h3>
+       
+      </div>
       </div>
       <div class="profile-textfield-container">
-        <div class="field-container">
-          <p>Email:</p>
-          <TextField size="medium" v-model="mediumTextValue" />
-        </div>
-        <div class="field-container">
-          <p>Mobile Number:</p>
-          <TextField size="medium" v-model="mediumTextValue" />
-        </div>
-        <div class="field-container">
-          <p>Hospital Name:</p>
-          <TextField size="medium" v-model="mediumTextValue" />
-        </div>
+      <div class="field-container">
+        <p>Email:</p>
+        <h3  v-if="userData">{{ userData.email }}</h3>
+       
+      </div>
+      <div class="field-container">
+        <p>Mobile Number:</p>
+        <h3  v-if="userData"> {{ userData.mobileNumber }}</h3>
+       
+      </div>
+      <div class="field-container">
+        <p>Hospital Name:</p>
+        <h3  v-if="userData"> {{ userData.hospitalName }}</h3>
+       
       </div>
     </div>
+  </div>
+
 
     <div class="profile-container-three">
       <button class="edit-button">
@@ -58,6 +64,18 @@
 <script>
 import user from "../assets/user.png";
 import TextField from "../components/TextFields.vue";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { mapGetters } from "vuex";
+import { initializeApp } from "firebase/app";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
+import { firebaseConfig } from "../firebase";
+
 export default {
   name: "App",
   components: {
@@ -66,7 +84,44 @@ export default {
   data() {
     return {
       user: user,
+      userData: null,
     };
+  },
+  computed: {
+    // Map the 'getUserUid' getter from the Vuex store
+    ...mapGetters("auth", ["getUserUid"]),
+  },
+  methods: {
+    async fetchData() {
+      try {
+        const userUid = this.$store.state.auth.userUid;
+        if (userUid) {
+          const firebaseApp = initializeApp(firebaseConfig);
+          const db = getFirestore(firebaseApp);
+
+          const q = query(
+            collection(db, "vue-doctor-details"),
+            where("uid", "==", userUid)
+          );
+
+          const querySnapshot = await getDocs(q);
+
+          if (!querySnapshot.empty) {
+            const userDoc = querySnapshot.docs[0];
+            const userData = userDoc.data();
+            console.log("Profile User Data:", userData.fullName);
+            this.userData = userData;
+          } else {
+            console.log("User document not found for UID:", userUid);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    },
+   }, mounted() {
+    // Fetch data or perform actions upon component mount
+    this.fetchData();
   },
 };
 </script>

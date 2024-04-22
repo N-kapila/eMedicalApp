@@ -221,7 +221,7 @@ export default {
         // If user creation successful, add doctor details to firestore
         if (user) {
           await addDoc(collection(db, "vue-doctor-details"), {
-            userId: user.uid,
+            uid: user.uid,
             fullName: this.fullName,
             doctorId: this.doctorId,
             speciality: this.speciality,
@@ -259,15 +259,15 @@ export default {
   display: flex;
   flex-direction: row;
   padding-bottom: 10px;
+  max-height: calc(100vh - 20px);
   width: 100%;
 }
-
 .container-one {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   width: 30vw;
+   overflow-y: auto;
 }
 
 .container-two {
@@ -275,7 +275,9 @@ export default {
   flex-direction: column;
   width: 70vw;
   border-left: 1px solid #ccc;
+  overflow-y: auto;
 }
+
 
 .signup-header {
   display: flex;

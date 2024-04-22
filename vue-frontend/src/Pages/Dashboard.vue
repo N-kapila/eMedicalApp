@@ -2,7 +2,7 @@
   <div class="dashboard-container">
     <div class="dashboard-container-one">
       <div>
-        <h1>Good morning, Dr. xxxxx</h1>
+        <h1 v-if="userData">Good morning, Dr. {{ userData.fullName }}</h1>
         <p>
           You have 7 patients remaining today! <br />
           Remember to record your details today.
@@ -15,12 +15,10 @@
 
     <div class="dashboard-container-two">
       <img :src="chart" alt="Chart" />
-      <div class="calendar-container">
-         
-      </div>
+      <div class="calendar-container"></div>
     </div>
 
-     <div class="dashboard-container-three">
+    <div class="dashboard-container-three">
       <div class="dashboard-header">
         <h2>Recent Patient List</h2>
         <router-link to="/patient-list">View All</router-link>
@@ -48,17 +46,27 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import user from "../assets/user.png";
-import chart from "../assets/chart.png"
+import chart from "../assets/chart.png";
+import { initializeApp } from "firebase/app";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
+import { firebaseConfig } from "../firebase";
 
 export default {
-  name: "App",
-  components: {
-  },
+  name: "Dashboard",
+  components: {},
   data() {
     return {
       user,
       chart,
+      userData: null,
       data: [
         {
           name: "John Doe",
@@ -86,12 +94,50 @@ export default {
           nextAppointmentDate: "2024-02-28",
         },
       ],
-
     };
-  }
+  },
+  computed: {
+    // Map the 'getUserUid' getter from the Vuex store
+    ...mapGetters("auth", ["getUserUid"]),
+  },
+  methods: {
+    async fetchData() {
+      try {
+        const userUid = this.getUserUid;
+
+        if (userUid) {
+          const firebaseApp = initializeApp(firebaseConfig);
+          const db = getFirestore(firebaseApp);
+
+          const q = query(
+            collection(db, "vue-doctor-details"),
+            where("uid", "==", userUid)
+          );
+
+          const querySnapshot = await getDocs(q);
+
+          if (!querySnapshot.empty) {
+            const userDoc = querySnapshot.docs[0];
+            const userData = userDoc.data();
+            console.log("Dashboard User Name:", userData.fullName);
+            this.userData = userData;
+          } else {
+            console.log("User document not found for UID:", userUid); // Corrected error message
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    },
+
+  },
+  mounted() {
+    // Fetch data or perform actions upon component mount
+    this.fetchData();
+  },
+
 };
 </script>
-
 
 <style scoped>
 .dashboard-container {
@@ -147,59 +193,57 @@ export default {
     width: 300px;
   } */
 
-  .dashboard-container-three {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 50px;
-    width: 80%;
-    margin-left: 40px;
-  }
-  
-  .dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 10px;
-    width: 90%;
-  }
-  
-  .dashboard-header h2 {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    color: var(--primary-color);
-  }
-  
-  .dashboard-header a {
-    text-decoration: none;
-    color: #007bff;
-  }
-  
-  .patient-table-container {
-    width: 100%;
-  }
-  
-  .patient-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .patient-table th,
-  .patient-table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
-  }
-  
-  .patient-table th {
-    background-color: #dedddd;
-    font-weight: bold;
-    
-  }
-@media screen and (max-width: 1366px) {
+.dashboard-container-three {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 50px;
+  width: 80%;
+  margin-left: 40px;
+}
 
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px;
+  width: 90%;
+}
+
+.dashboard-header h2 {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  color: var(--primary-color);
+}
+
+.dashboard-header a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.patient-table-container {
+  width: 100%;
+}
+
+.patient-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.patient-table th,
+.patient-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.patient-table th {
+  background-color: #dedddd;
+  font-weight: bold;
+}
+@media screen and (max-width: 1366px) {
   .dashboard-container-two {
     padding: 50px;
   }
@@ -209,35 +253,33 @@ export default {
     width: auto;
   }
 }
-  
 
 @media screen and (max-width: 768px) {
-
-  .dashboard-container{
+  .dashboard-container {
     padding: 0;
   }
 
-    .dashboard-container-one {
-        width: auto;
-        height: 100%;
-        padding: 10px;
-        flex-direction: column-reverse;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 50px;
-    }
+  .dashboard-container-one {
+    width: auto;
+    height: 100%;
+    padding: 10px;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
 
-    .dashboard-user-image img {
-        height: 100px;
-        width: 100px;
-    }
+  .dashboard-user-image img {
+    height: 100px;
+    width: 100px;
+  }
 
-    .dashboard-container-one h1{
-        text-align: center;
-    }
-    .dashboard-container-one p{
-        display: none;
-    }
+  .dashboard-container-one h1 {
+    text-align: center;
+  }
+  .dashboard-container-one p {
+    display: none;
+  }
   .dashboard-container-two {
     flex-direction: column;
     width: auto;
@@ -286,30 +328,27 @@ export default {
 }
 
 @media (max-width: 375px) {
-
-  
-  .dashboard-container-one{
+  .dashboard-container-one {
     padding: 20px;
     padding-left: 0;
     width: 60%;
   }
-  .dashboard-container-one h1{
+  .dashboard-container-one h1 {
     font-size: medium;
   }
 
-  .dashboard-container-two{
+  .dashboard-container-two {
     width: 80%;
     padding-left: 0;
     padding: 20px;
   }
 
-  .dashboard-container-three{
+  .dashboard-container-three {
     width: auto;
   }
 
-    .patient-table{
-      width: auto;
-    }
+  .patient-table {
+    width: auto;
+  }
 }
-
 </style>

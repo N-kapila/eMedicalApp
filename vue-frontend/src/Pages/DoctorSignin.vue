@@ -87,9 +87,15 @@ export default {
           this.email, //rashini@gmail.com
           this.password //Rash999
         );
-        // If sign-in is successful, redirect to dashboard
-        if (userCredential) {
-          this.$router.push("/dashboard");
+       if (userCredential) {
+          const user = userCredential.user;
+          const uid = user.uid;
+          console.log("Signin uid:",uid)
+          // Dispatch action to set user UID in Vuex store
+          this.$store.dispatch('auth/setUserUid', uid);
+
+          // Navigate to the dashboard
+          this.$router.push('/dashboard');
         }
       } catch (error) {
         console.error("Error signing in:", error);
