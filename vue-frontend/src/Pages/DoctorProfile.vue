@@ -7,42 +7,36 @@
       <img class="user-image" :src="user" alt="" />
     </div>
 
-   <div class="profile-container-two" >
-    <div class="profile-textfield-container" >
-      <div class="field-container">
-        <p>Full Name:</p>
-        <h3  v-if="userData">{{ userData.fullName }}</h3>
-      </div>
-      <div class="field-container">
-        <p>Doctor Id:</p>
-        <h3  v-if="userData"> {{ userData.doctorId }}</h3>
-        
-      </div>
-      <div class="field-container">
-        <p>Speciality:</p>
-        <h3  v-if="userData"> {{ userData.speciality }}</h3>
-       
-      </div>
+    <div class="profile-container-two">
+      <div class="profile-textfield-container">
+        <div class="field-container">
+          <p>Full Name:</p>
+          <h3 v-if="userData">{{ userData.fullName }}</h3>
+        </div>
+        <div class="field-container">
+          <p>Doctor Id:</p>
+          <h3 v-if="userData">{{ userData.doctorId }}</h3>
+        </div>
+        <div class="field-container">
+          <p>Speciality:</p>
+          <h3 v-if="userData">{{ userData.speciality }}</h3>
+        </div>
       </div>
       <div class="profile-textfield-container">
-      <div class="field-container">
-        <p>Email:</p>
-        <h3  v-if="userData">{{ userData.email }}</h3>
-       
-      </div>
-      <div class="field-container">
-        <p>Mobile Number:</p>
-        <h3  v-if="userData"> {{ userData.mobileNumber }}</h3>
-       
-      </div>
-      <div class="field-container">
-        <p>Hospital Name:</p>
-        <h3  v-if="userData"> {{ userData.hospitalName }}</h3>
-       
+        <div class="field-container">
+          <p>Email:</p>
+          <h3 v-if="userData">{{ userData.email }}</h3>
+        </div>
+        <div class="field-container">
+          <p>Mobile Number:</p>
+          <h3 v-if="userData">{{ userData.mobileNumber }}</h3>
+        </div>
+        <div class="field-container">
+          <p>Hospital Name:</p>
+          <h3 v-if="userData">{{ userData.hospitalName }}</h3>
+        </div>
       </div>
     </div>
-  </div>
-
 
     <div class="profile-container-three">
       <button class="edit-button">
@@ -51,9 +45,10 @@
       <button class="save-button">
         <h2>Save</h2>
       </button>
-      <button class="signout-button">
+      <button class="signout-button" @click="handleSignOut">
         <h2>Sign Out</h2>
       </button>
+
       <button class="delete-button">
         <h2>Delete account</h2>
       </button>
@@ -119,7 +114,19 @@ export default {
         console.error("Error fetching user data:", error);
       }
     },
-   }, mounted() {
+    async handleSignOut() {
+      try {
+        await this.$store.dispatch("auth/signOut");
+        console.log("User signed out successfully.");
+        alert("Sign out successfully");
+        this.$router.push("/doctor-signin");
+        // Redirect to the sign-in page or any other page after sign-out
+      } catch (error) {
+        console.error("Error signing out:", error);
+      }
+    },
+  },
+  mounted() {
     // Fetch data or perform actions upon component mount
     this.fetchData();
   },
