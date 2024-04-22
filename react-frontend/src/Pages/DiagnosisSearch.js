@@ -43,7 +43,7 @@ export function DiagnosisSearch() {
         <LargeTextField
           className="large-text-fields"
           type="text"
-          placeholder="Search Diagnosis"
+          placeholder="Search Diseases"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
