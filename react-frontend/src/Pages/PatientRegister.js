@@ -1,7 +1,8 @@
 import React from "react";
 import "./PatientRegister.css";
-import { LargeTextField, SelectTextField } from "../Components/Textfeilds";
+import { LargeTextField } from "../Components/Textfeilds";
 import { useState } from "react";
+import { DiagnosisSearch } from "./DiagnosisSearch";
 
 function PatientRegister() {
   const diseaseOptions = [
@@ -31,28 +32,13 @@ function PatientRegister() {
           <p>Email:</p>
           <LargeTextField placeholder={"Enter email address"} /> <br />
           <p>Current Diseases</p>
-          <SelectTextField
-            options={diseaseOptions}
-            value={selectedDisease}
-            onChange={handleDiseaseChange}
-            placeholder="Select disease"
-          />
+          <DiagnosisSearch />
           <br />
           <p>Current Medication</p>
-          <SelectTextField
-            options={diseaseOptions}
-            value={selectedDisease}
-            onChange={handleDiseaseChange}
-            placeholder="Select medication"
-          />
+          <LargeTextField placeholder={"Enter medication"} /> <br />
           <br />
           <p>Current Treatments</p>
-          <SelectTextField
-            options={diseaseOptions}
-            value={selectedDisease}
-            onChange={handleDiseaseChange}
-            placeholder="Select treatments"
-          />
+          <LargeTextField placeholder={"Enter treatments"} /> <br />
         </div>
 
         <div className="patient-container-one">
@@ -65,12 +51,7 @@ function PatientRegister() {
           <p>Register Date:</p>
           <LargeTextField placeholder={"Enter register date"} /> <br />
           <p>Past Diseases</p>
-          <SelectTextField
-            options={diseaseOptions}
-            value={selectedDisease}
-            onChange={handleDiseaseChange}
-            placeholder="Select disease"
-          />
+          <DiagnosisSearch />
           <br />
           <p>Next Appointment Date:</p>
           <LargeTextField placeholder={"Date"} />
