@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { AuthProvider } from "../Pages/AuthContext";
 import "./Routes.css";
 import DoctorRegister from "../Pages/DoctorRegister";
 import DoctorSignin from "../Pages/DoctorSignin";
@@ -13,68 +14,70 @@ import PatientProfile from "../Pages/PatientProfile";
 
 function AppRoutes() {
   return (
-    <Routes>
-      <Route path="/" element={<DoctorRegister />} />
-      <Route path="/doctor-register" element={<DoctorRegister />} />
-      <Route path="/doctor-signin" element={<DoctorSignin />} />
-      <Route path="/navbar" element={<Navbar />} />
-      <Route
-        path="/patient-register"
-        element={
-          <div className="content">
-            <Navbar />
-            <div className="main-content">
-              <PatientRegister />
+    <AuthProvider>
+      <Routes>
+        <Route path="/" element={<DoctorRegister />} />
+        <Route path="/doctor-register" element={<DoctorRegister />} />
+        <Route path="/doctor-signin" element={<DoctorSignin />} />
+        <Route path="/navbar" element={<Navbar />} />
+        <Route
+          path="/patient-register"
+          element={
+            <div className="content">
+              <Navbar />
+              <div className="main-content">
+                <PatientRegister />
+              </div>
             </div>
-          </div>
-        }
-      />
-      <Route
-        path="/doctor-profile"
-        element={
-          <div className="content">
-            <Navbar />
-            <div className="main-content">
-              <DoctorProfile />
+          }
+        />
+        <Route
+          path="/doctor-profile"
+          element={
+            <div className="content">
+              <Navbar />
+              <div className="main-content">
+                <DoctorProfile />
+              </div>
             </div>
-          </div>
-        }
-      />
-      <Route
-        path="/dashboard"
-        element={
-          <div className="content">
-            <Navbar />
-            <div className="main-content">
-              <Dashboard />
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <div className="content">
+              <Navbar />
+              <div className="main-content">
+                <Dashboard />
+              </div>
             </div>
-          </div>
-        }
-      />
-      <Route
-        path="/patient-list"
-        element={
-          <div className="content">
-            <Navbar />
-            <div className="main-content">
-              <PatientList />
+          }
+        />
+        <Route
+          path="/patient-list"
+          element={
+            <div className="content">
+              <Navbar />
+              <div className="main-content">
+                <PatientList />
+              </div>
             </div>
-          </div>
-        }
-      />
-      <Route
-        path="/patient-profile"
-        element={
-          <div className="content">
-            <Navbar />
-            <div className="main-content">
-              <PatientProfile />
+          }
+        />
+        <Route
+          path="/patient-profile"
+          element={
+            <div className="content">
+              <Navbar />
+              <div className="main-content">
+                <PatientProfile />
+              </div>
             </div>
-          </div>
-        }
-      />
-      <Route path="*" element={<ErrorPage />} />
-    </Routes>
+          }
+        />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </AuthProvider>
   );
 }
 

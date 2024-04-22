@@ -1,36 +1,40 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import img2 from "../assets/image2.png";
-import logo from "../assets/logo.png";
 import { LargeTextField, PasswordInput } from "../Components/Textfeilds";
 import "./DoctorSignin.css";
-import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase-config";
+import { useAuth } from "./AuthContext";
 
 function DoctorSignin() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const { uid } = useParams();
+  const { setUserUid } = useAuth();
 
   const handleSignIn = async (event) => {
     event.preventDefault();
 
     try {
       // Sign in user with email and password
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
 
-      //console.log("User UID:", user.uid);
-      // Clear form fields and error state upon successful sign-in
-      setEmail(""); //nirmalkapilarathne1998@gmail.com
-      setPassword(""); //Doctor001
-      setError(null);
+      // Set user UID in AuthContext
+      setUserUid(user.uid);
+      console.log("signin userid:", user.uid);
 
-      window.location.href = "/dashboard";
+      // Navigate to the dashboard
+      navigate("/dashboard");
     } catch (error) {
       setError(error.message);
-      alert(error.message);
     }
   };
 
