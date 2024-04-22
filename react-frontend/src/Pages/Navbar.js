@@ -3,9 +3,23 @@ import "./Navbar.css";
 import { FaHome, FaUser, FaClipboardList, FaList } from "react-icons/fa";
 import { NavLink, useLocation } from "react-router-dom";
 import userimg from "../assets/user.png";
+import { useAuth } from "./AuthContext";
+import { initializeApp } from "firebase/app";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
+import { firebaseConfig } from "../firebase-config";
 
 function Navbar() {
   const [isNavVisible, setIsNavVisible] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const { userUid } = useAuth();
+  const location = useLocation();
+  const [activeLink, setActiveLink] = useState("");
 
   const toggleNavVisibility = () => {
     setIsNavVisible(!isNavVisible);
@@ -15,8 +29,35 @@ function Navbar() {
     setIsNavVisible(false);
   };
 
-  const location = useLocation();
-  const [activeLink, setActiveLink] = useState("");
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        if (userUid) {
+          const firebaseApp = initializeApp(firebaseConfig);
+          const db = getFirestore(firebaseApp);
+
+          const q = query(
+            collection(db, "react-doctor-details"),
+            where("uid", "==", userUid)
+          );
+          const querySnapshot = await getDocs(q);
+
+          if (!querySnapshot.empty) {
+            const userDoc = querySnapshot.docs[0];
+            const userData = userDoc.data();
+            console.log("Dashboard User Name:", userData.fullName);
+            setUserData(userData);
+          } else {
+            console.log("User document not found for UID:", userUid);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+  }, [userUid]); // Run effect whenever userUid changes
 
   useEffect(() => {
     setActiveLink(location.pathname);
@@ -32,11 +73,15 @@ function Navbar() {
         onClick={closeNav}
       ></div>
 
-      <div className={`navbar-container-one ${isNavVisible ? "visible" : ""}`}>
-        <img className="nav-image" src={userimg} alt="" />
-        <h3 className="doctor-details">Dr: xxxxxx</h3>
-        <h3 className="doctor-details">ID: 123456</h3>
-      </div>
+      {userData && (
+        <div
+          className={`navbar-container-one ${isNavVisible ? "visible" : ""}`}
+        >
+          <img className="nav-image" src={userimg} alt="" />
+          <h3 className="doctor-details">Dr: {userData.fullName}</h3>
+          <h3 className="doctor-details">ID: {userData.doctorId}</h3>
+        </div>
+      )}
 
       <div className={`navbar-container-two ${isNavVisible ? "visible" : ""}`}>
         <NavLink
