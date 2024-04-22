@@ -26,25 +26,21 @@
         />
         <br />
         <p>Current Diseases</p>
-        <SelectTextField
-          :options="options"
-          v-model="selectedOption"
-          placeholder="Select disease"
-        />
+         <diagnosis-search/>
         <br />
         <p>Current Medication</p>
-        <SelectTextField
-          :options="options"
-          v-model="selectedOption"
-          placeholder="Select medication"
-        />
+        <TextField
+              size="large"
+              v-model="largeTextValue"
+              placeholder="Enter medication"
+            />
         <br />
         <p>Current Treatments</p>
-        <SelectTextField
-          :options="options"
-          v-model="selectedOption"
-          placeholder="Select treatments"
-        />
+        <TextField
+            size="large"
+            v-model="largeTextValue"
+            placeholder="Enter treatments"
+          />
       </div>
 
       <div class="patient-container-one">
@@ -73,14 +69,11 @@
         />
         <br />
         <p>Past Diseases</p>
-        <SelectTextField
-          :options="options"
-          v-model="selectedOption"
-          placeholder="Select disease"
-        />
+         <diagnosis-search/>
         <br />
         <p>Next Appointment Date:</p>
         <TextField size="large" v-model="largeTextValue" placeholder="Date" />
+       
       </div>
     </div>
     <div class="button-section">
@@ -93,21 +86,16 @@
 
 <script>
 import TextField from "../components/TextFields.vue";
-import SelectTextField from "../components/SelectTextField.vue";
+import DiagnosisSearch from './DiagnosisSearch.vue';
 export default {
   components: {
     TextField,
-    SelectTextField,
+    DiagnosisSearch,
   },
   data() {
     return {
       largeTextValue: "",
-      selectedOption: "",
-      options: [
-        { value: "option1", label: "Option 1" },
-        { value: "option2", label: "Option 2" },
-        { value: "option3", label: "Option 3" },
-      ],
+      
     };
   },
 };

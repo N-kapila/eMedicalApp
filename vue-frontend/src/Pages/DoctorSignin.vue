@@ -84,8 +84,8 @@ export default {
         
         const userCredential = await signInWithEmailAndPassword(
           auth,
-          this.email, //rashini@gmail.com
-          this.password //Rash999
+          this.email, //sachin98@gmail.com
+          this.password //sachin@98
         );
        if (userCredential) {
           const user = userCredential.user;
