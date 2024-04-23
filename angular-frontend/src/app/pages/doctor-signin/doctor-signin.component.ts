@@ -8,12 +8,14 @@ import { AuthService } from '../../auth.service';
   standalone: true,
   imports: [TextfieldsComponent],
   templateUrl: './doctor-signin.component.html',
-  styleUrl: './doctor-signin.component.css'
+  styleUrl: './doctor-signin.component.css',
 })
 export class DoctorSigninComponent {
-img2: string = '../assets/image2.png';
-email: string = '';
+  img2: string = '../assets/image2.png';
+  email: string = '';
   password: string = '';
+  error: string | null = null;
+  loading: boolean = false;
 
   updateEmail(event: any) {
     if (event.target) {
@@ -27,33 +29,31 @@ email: string = '';
     }
   }
 
+  constructor(private router: Router, private authService: AuthService) {}
 
- constructor(private router: Router,private authService: AuthService) {}
+signIn() {
+  this.authService.signIn(this.email, this.password).subscribe(
+    (userCredential) => {
+      // Sign-in successful
+      const user = userCredential.user;
+      console.log('Signed in successfully! User UID:', user.uid);
+      this.router.navigateByUrl('dashboard');
+    },
+    (error) => {
+      // Handle sign-in errors here
+      console.error('Sign-in error:', error);
+      alert('Sign-in error:' + error.message);
+    }
+  );
+}
 
- signIn() {
-    this.authService.signIn(this.email, this.password).subscribe(
-      (userCredential) => {
-        // Sign-in successful, you can navigate or perform other actions here
-        console.log('Signed in successfully!', userCredential.user);
-        this.router.navigateByUrl('dashboard');
-      },
-      (error) => {
-        // Handle sign-in errors here
-        console.error('Sign-in error:', error);
-        alert('Sign-in error:'+ error.message)
-      }
-    );
- }
- 
+
+
   navigateToDoctorSignup() {
     this.router.navigate(['/']);
   }
 
-  navigateToForgotPassword(){
+  navigateToForgotPassword() {
     this.router.navigate([]);
   }
-
-  // handleClick(): void {
-  //   this.router.navigateByUrl('dashboard');
-  // }
 }

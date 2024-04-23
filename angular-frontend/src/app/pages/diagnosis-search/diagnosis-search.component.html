@@ -1,0 +1,26 @@
+<div class="diagnosis-search-container">
+  <div>
+    <input
+      type="text"
+      (input)="handleSearchChange($event)"
+      [value]="searchText"
+      placeholder="Search Diseases"
+    />
+
+    <ul *ngIf="isListVisible">
+      <li
+        *ngFor="let diagnosis of diagnosisList"
+        (click)="handleDiagnosisSelect(diagnosis)"
+      >
+        {{ diagnosis.display }}
+      </li>
+    </ul>
+  </div>
+  <div class="selected-diagnoses">
+    <ul>
+      <li *ngFor="let diagnosis of selectedDiagnoses">
+        {{ diagnosis }}
+      </li>
+    </ul>
+  </div>
+</div>
