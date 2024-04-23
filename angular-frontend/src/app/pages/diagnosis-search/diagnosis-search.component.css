@@ -9,7 +9,6 @@
   left: 0;
   width: 100%;
   background-color: #ffffff; /* Optional styling for the list */
-  border: 1px solid #ccc;
   border-top: none;
   z-index: 1; /* Ensure the list is above other content */
   list-style-type: none;
