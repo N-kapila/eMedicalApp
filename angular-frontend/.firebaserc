@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "emedicalapp-ff3be": {
+      "hosting": {
+        "angular-frontend": [
+          "emedicalapp-ff3be"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "emedicalapp-ff3be"
+  }
+}

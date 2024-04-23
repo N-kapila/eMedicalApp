@@ -13,22 +13,21 @@
       <app-textfields type="text" size="lg" placeholder="Enter email address" />
       <br />
       <p>Current Diseases:</p>
-      <app-select-textfield
-        [value]="selectedOption"
-        [placeholder]="'Select disease'"
-        [options]="selectOptions"
-      /><br />
+      <app-diagnosis-search
+        (selectedDiagnosesChange)="onSelectedDiagnosesChange($event)"
+      />
+      <br />
       <p>Current Medication:</p>
-      <app-select-textfield
-        [value]="selectedOption"
-        [placeholder]="'Select mediaction'"
-        [options]="selectOptions"
+      <app-textfields
+        type="text"
+        size="lg"
+        placeholder="Enter medication"
       /><br />
       <p>Current Treatments:</p>
-      <app-select-textfield
-        [value]="selectedOption"
-        [placeholder]="'Select treatments'"
-        [options]="selectOptions"
+      <app-textfields
+        type="text"
+        size="lg"
+        placeholder="Enter treatments"
       /><br />
     </div>
 
@@ -47,10 +46,8 @@
       <br />
       <p>Past Diseases:</p>
       <br />
-      <app-select-textfield
-        [value]="selectedOption"
-        [placeholder]="'Select disease'"
-        [options]="selectOptions"
+      <app-diagnosis-search
+        (selectedDiagnosesChange)="onSelectedDiagnosesChange($event)"
       /><br />
       <p>Next Appointment Date:</p>
       <app-textfields type="text" size="lg" placeholder="Date" />

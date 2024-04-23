@@ -29,8 +29,12 @@ export class TextfieldsComponent {
     this.showPassword = !this.showPassword;
   }
 
-  onChange(event: any) {
-    this.valueChange.emit(event.target.value);
+ onChange(event: any) {
+  const value = event?.target?.value; // Using optional chaining to safely access nested properties
+  if (value !== undefined) {
+    this.valueChange.emit(value);
   }
+}
+
 
 }
