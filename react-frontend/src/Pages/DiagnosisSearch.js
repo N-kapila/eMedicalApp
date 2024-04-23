@@ -52,7 +52,7 @@ export function DiagnosisSearch() {
           }}
         />
         {isListVisible && (
-          <ul>
+          <ul className="search-list">
             {diagnosisList.map((diagnosis) => (
               <li
                 key={diagnosis.code}
