@@ -3,7 +3,7 @@
     :type="inputType"
     :placeholder="placeholder"
     :value="value"
-    @input="onChange"
+    @input="updateValue($event.target.value)"
     :class="inputClass"
   />
 </template>
@@ -13,7 +13,6 @@ export default {
   props: {
     placeholder: String,
     value: String,
-    onChange: Function,
     size: String,
   },
   computed: {
@@ -26,6 +25,11 @@ export default {
         "medium-text-field": this.size === "medium",
         "large-text-field": this.size === "large",
       };
+    },
+  },
+  methods: {
+    updateValue(newValue) {
+      this.$emit("update:value", newValue); // Emit the 'update:value' event with the new value
     },
   },
 };

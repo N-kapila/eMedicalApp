@@ -19,23 +19,28 @@
           <p>Full Name:</p>
           <TextField
             size="large"
-            v-model="largeTextValue"
+            :value="fullName"
+            @update:value="updateFullName"
             placeholder="Enter your name"
           />
           <br />
           <p>Doctor Id:</p>
           <TextField
             size="large"
-            v-model="largeTextValue"
+            :value="doctorId"
+            @update:value="updateDoctorId"
             placeholder="Enter your Id"
           />
+
           <br />
           <p>Speciality:</p>
           <TextField
             size="large"
-            v-model="largeTextValue"
+            :value="speciality"
+            @update:value="updateSpeciality"
             placeholder="Enter speciality"
           />
+
           <br />
         </div>
 
@@ -43,23 +48,29 @@
           <p>Email:</p>
           <TextField
             size="large"
-            v-model="largeTextValue"
+            :value="email"
+            @update:value="updateEmail"
             placeholder="Enter email address"
           />
+
           <br />
           <p>Mobile Number:</p>
           <TextField
             size="large"
-            v-model="largeTextValue"
+            :value="mobileNumber"
+            @update:value="updateMobileNumber"
             placeholder="Enter mobile number"
           />
+
           <br />
           <p>Hospital Name:</p>
           <TextField
             size="large"
-            v-model="largeTextValue"
+            :value="hospitalName"
+            @update:value="updateHospitalName"
             placeholder="Enter hospital name"
           />
+
           <br />
         </div>
       </div>
@@ -67,12 +78,20 @@
       <div class="textField-container">
         <div class="textField-container-one">
           <p>Password:</p>
-          <PasswordInput v-model="password" placeholder="Enter password" />
+          <PasswordInput
+            :value="password"
+            @update:value="updatePassword"
+            placeholder="Enter password"
+          />
         </div>
 
         <div class="textField-container-one">
           <p>Confirm Password:</p>
-          <PasswordInput v-model="password" placeholder="Re-enter password" />
+          <PasswordInput
+            :value="confirmPassword"
+            @update:value="updateConfirmPassword"
+            placeholder="Re-enter password"
+          />
         </div>
       </div>
 
@@ -93,7 +112,7 @@
         </div>
 
         <div class="button-section">
-          <button class="signup-button">
+          <button class="signup-button" @click="signUp">
             <h2>Sign Up</h2>
           </button>
         </div>
@@ -106,6 +125,9 @@
 import img1 from "../assets/image1.png";
 import TextField from "../components/TextFields.vue";
 import PasswordInput from "../components/PasswordTextField.vue";
+import { db, auth } from "@/firebase";
+import { addDoc, collection } from "firebase/firestore";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export default {
   mounted() {
@@ -120,8 +142,14 @@ export default {
     return {
       img1: img1,
       profilePic: null,
-      largeTextValue: "",
+      fullName: "",
+      doctorId: "",
+      speciality: "",
+      email: "",
+      mobileNumber: "",
+      hospitalName: "",
       password: "",
+      confirmPassword: "",
     };
   },
   components: {
@@ -135,6 +163,93 @@ export default {
         this.profilePic = URL.createObjectURL(file);
       }
     },
+    updateFullName(newValue) {
+      this.fullName = newValue;
+    },
+    updateDoctorId(newValue) {
+      this.doctorId = newValue;
+    },
+    updateSpeciality(newValue) {
+      this.speciality = newValue;
+    },
+    updateEmail(newValue) {
+      this.email = newValue;
+    },
+    updateMobileNumber(newValue) {
+      this.mobileNumber = newValue;
+    },
+    updateHospitalName(newValue) {
+      this.hospitalName = newValue;
+    },
+    updatePassword(newValue) {
+      this.password = newValue;
+    },
+    updateConfirmPassword(newValue) {
+      this.confirmPassword = newValue;
+    },
+    async signUp() {
+      try {
+        if (this.password !== this.confirmPassword) {
+          console.error("Passwords do not match");
+          alert("Passwords do not match");
+          return;
+        }
+
+        // Validate if all required fields are filled
+        if (
+          !this.fullName ||
+          !this.doctorId ||
+          !this.speciality ||
+          !this.email ||
+          !this.mobileNumber ||
+          !this.hospitalName ||
+          !this.password ||
+          !this.confirmPassword
+        ) {
+          console.error("All fields are required");
+          alert("All fields are required");
+          return;
+        }
+
+        // Create user with email and password
+        const { user } = await createUserWithEmailAndPassword(
+          auth,
+          this.email,
+          this.password
+        );
+
+        // If user creation successful, add doctor details to firestore
+        if (user) {
+          await addDoc(collection(db, "vue-doctor-details"), {
+            uid: user.uid,
+            fullName: this.fullName,
+            doctorId: this.doctorId,
+            speciality: this.speciality,
+            email: this.email,
+            mobileNumber: this.mobileNumber,
+            hospitalName: this.hospitalName,
+          });
+          console.log("Doctor signed up successfully!");
+
+          // Reset form fields after successful signup
+          this.fullName = "";
+          this.doctorId = "";
+          this.speciality = "";
+          this.email = "";
+          this.mobileNumber = "";
+          this.hospitalName = "";
+          this.password = "";
+          this.confirmPassword = "";
+
+          // Show success message
+          alert("Registration successful!");
+          window.location.href = "/doctor-signin";
+        }
+      } catch (error) {
+        console.error("Error signing up doctor:", error);
+        alert("Error signing up doctor:", +error.message);
+      }
+    },
   },
 };
 </script>
@@ -144,15 +259,15 @@ export default {
   display: flex;
   flex-direction: row;
   padding-bottom: 10px;
+  max-height: calc(100vh - 20px);
   width: 100%;
 }
-
 .container-one {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   width: 30vw;
+   overflow-y: auto;
 }
 
 .container-two {
@@ -160,7 +275,9 @@ export default {
   flex-direction: column;
   width: 70vw;
   border-left: 1px solid #ccc;
+  overflow-y: auto;
 }
+
 
 .signup-header {
   display: flex;

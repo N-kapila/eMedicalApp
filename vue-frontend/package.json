@@ -12,10 +12,12 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/vue-fontawesome": "^3.0.6",
     "core-js": "^3.8.3",
+    "firebase": "^10.11.0",
     "vue": "^3.2.13",
     "vue-event-calendar": "^1.5.2",
     "vue-router": "^4.3.0",
-    "vue3-calendar": "^0.1.2"
+    "vue3-calendar": "^0.1.2",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

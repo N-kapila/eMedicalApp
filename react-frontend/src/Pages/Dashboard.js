@@ -1,13 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import Calendar from "react-calendar";
 import userimg from "../assets/user.png";
 import chart from "../assets/chart.png";
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "./AuthContext";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "../firebase-config";
 
 function Dashboard() {
   const [date, setDate] = useState(new Date());
+  const [userData, setUserData] = useState(null);
+  const { userUid } = useAuth();
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        if (userUid) {
+          const firebaseApp = initializeApp(firebaseConfig);
+          const db = getFirestore(firebaseApp);
+
+          const q = query(
+            collection(db, "react-doctor-details"),
+            where("uid", "==", userUid)
+          );
+          const querySnapshot = await getDocs(q);
+
+          if (!querySnapshot.empty) {
+            const userDoc = querySnapshot.docs[0];
+            const userData = userDoc.data();
+            console.log("Dashboard User Name:", userData.fullName);
+            setUserData(userData);
+          } else {
+            console.log("User document not found for UID:", userUid);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+  }, [userUid]);
 
   const handleDateChange = (newDate) => {
     setDate(newDate);
@@ -44,13 +85,15 @@ function Dashboard() {
   return (
     <div className="dashboard-container">
       <div className="dashboard-container-one">
-        <div>
-          <h1>Good morning, Dr. xxxxx</h1>
-          <p>
-            You have 7 patients remaining today! <br /> Remember to record your
-            details today.
-          </p>
-        </div>
+        {userData && (
+          <div>
+            <h1>Good morning, Dr. {userData.fullName}</h1>
+            <p>
+              You have 7 patients remaining today! <br /> Remember to record
+              your details today.
+            </p>
+          </div>
+        )}
         <div className="dashboard-user-image">
           <img src={userimg} alt="User" />
         </div>

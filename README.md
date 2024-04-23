@@ -9,5 +9,12 @@ npm install
 ### Run development mode
 
 ```
-npm run start
+npm start
+```
+```
+ ng serve
+```
+
+```
+npm run serve
 ```

@@ -1,0 +1,69 @@
+.diagnosis-search-container {
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+.search-list {
+  position: absolute;
+  top: 100%; /* Position the list below the input */
+  left: 0;
+  width: 100%;
+  background-color: #ffffff; /* Optional styling for the list */
+  border-top: none;
+  z-index: 1; /* Ensure the list is above other content */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.large-text-fields {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.diagnosis-search-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.diagnosis-search-container ul li {
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.diagnosis-search-container ul li:hover {
+  background-color: #f0f0f0;
+}
+
+.diagnosis-search-container ul li:last-child {
+  border-bottom: none;
+}
+
+.diagnosis-search-container .selected-diagnoses {
+  margin-top: 10px;
+}
+
+.diagnosis-search-container .selected-diagnoses p {
+  margin-bottom: 5px;
+}
+
+.diagnosis-search-container .selected-diagnoses ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.diagnosis-search-container .selected-diagnoses ul li {
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  flex: 0 0 calc(33.33% - 10px);
+  max-width: calc(33.33% - 10px);
+}

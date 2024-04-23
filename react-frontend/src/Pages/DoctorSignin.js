@@ -1,17 +1,43 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import img2 from "../assets/image2.png";
-import logo from "../assets/logo.png";
 import { LargeTextField, PasswordInput } from "../Components/Textfeilds";
 import "./DoctorSignin.css";
-import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase-config";
+import { useAuth } from "./AuthContext";
 
 function DoctorSignin() {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const { uid } = useParams();
+  const { setUserUid } = useAuth();
 
-  const handleSignInClick = () => {
-    // Redirect to /dashboard when the button is clicked
-    navigate("/dashboard");
+  const handleSignIn = async (event) => {
+    event.preventDefault();
+
+    try {
+      // Sign in user with email and password
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+
+      // Set user UID in AuthContext
+      setUserUid(user.uid);
+      console.log("signin userid:", user.uid);
+
+      // Navigate to the dashboard
+      navigate("/dashboard");
+    } catch (error) {
+      setError(error.message);
+    }
   };
+
   return (
     <div className="signin-container">
       <div className="signin-container-one">
@@ -37,18 +63,30 @@ function DoctorSignin() {
             <h1>Login {""} </h1> <h1>to eHealthHub</h1>
           </div>
 
-          <div className="signin-textfield-container">
-            <LargeTextField placeholder={"Enter your Email"} />
-            <PasswordInput placeholder={"Enter your password"} />
-            <Link to="#" style={{ color: "white" }}>
-              Forgot Password?
-            </Link>
-          </div>
-          <div className="Signin-button-section">
-            <button className="signin-button" onClick={handleSignInClick}>
-              <h2>Sign in</h2>
-            </button>
-          </div>
+          <form onSubmit={handleSignIn}>
+            <div className="signin-textfield-container">
+              <LargeTextField
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder={"Enter your Email"}
+              />
+              <PasswordInput
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder={"Enter your password"}
+              />
+              <Link to="#" style={{ color: "white" }}>
+                Forgot Password?
+              </Link>
+            </div>
+            <div className="Signin-button-section">
+              <button className="signin-button">
+                <h2>Sign in</h2>
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

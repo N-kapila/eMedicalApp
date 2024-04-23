@@ -9,8 +9,8 @@
 
     <div class="navbar-container-one" :class="{ visible: isNavVisible }">
       <img class="nav-image" :src="user" alt="" />
-      <h3 class="doctor-details">Dr: xxxxxx</h3>
-      <h3 class="doctor-details">ID: 123456</h3>
+      <h3 class="doctor-details" v-if="userData">Dr: {{ userData.fullName }}</h3>
+      <h3 class="doctor-details" v-if="userData">ID: {{ userData.doctorId }}</h3>
     </div>
 
     <div class="navbar-container-two" :class="{ visible: isNavVisible }">
@@ -46,11 +46,22 @@ import {
   faList,
 } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import { mapGetters } from "vuex";
+import { initializeApp } from "firebase/app";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
+import { firebaseConfig } from "../firebase";
 
 export default {
   data() {
     return {
       user: user,
+      userData: null,
     };
   },
   components: {
@@ -83,7 +94,45 @@ export default {
       isLinkActive
     };
   },
+
+  computed: {
+    // Map the 'getUserUid' getter from the Vuex store
+    ...mapGetters("auth", ["getUserUid"]),
+  },
+ methods: {
+    async fetchData() {
+      try {
+        const userUid = this.getUserUid;
+        if (userUid) {
+          const firebaseApp = initializeApp(firebaseConfig);
+          const db = getFirestore(firebaseApp);
+
+          const q = query(
+            collection(db, "vue-doctor-details"),
+            where("uid", "==", userUid)
+          );
+
+          const querySnapshot = await getDocs(q);
+
+          if (!querySnapshot.empty) {
+            const userDoc = querySnapshot.docs[0];
+            const userData = userDoc.data();
+            console.log("Dashboard User Name:", userData.fullName);
+            this.userData = userData;
+          } else {
+            console.log("User document not found for UID:", userUid);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    },
+  }, mounted() {
+    // Fetch data or perform actions upon component mount
+    this.fetchData();
+  },
 };
+
 </script>
 
 <style>
