@@ -26,21 +26,21 @@
         />
         <br />
         <p>Current Diseases</p>
-         <diagnosis-search/>
+        <diagnosis-search />
         <br />
         <p>Current Medication</p>
         <TextField
-              size="large"
-              v-model="largeTextValue"
-              placeholder="Enter medication"
-            />
+          size="large"
+          v-model="largeTextValue"
+          placeholder="Enter medication"
+        />
         <br />
         <p>Current Treatments</p>
         <TextField
-            size="large"
-            v-model="largeTextValue"
-            placeholder="Enter treatments"
-          />
+          size="large"
+          v-model="largeTextValue"
+          placeholder="Enter treatments"
+        />
       </div>
 
       <div class="patient-container-one">
@@ -69,11 +69,10 @@
         />
         <br />
         <p>Past Diseases</p>
-         <diagnosis-search/>
+        <diagnosis-search />
         <br />
         <p>Next Appointment Date:</p>
         <TextField size="large" v-model="largeTextValue" placeholder="Date" />
-       
       </div>
     </div>
     <div class="button-section">
@@ -86,7 +85,7 @@
 
 <script>
 import TextField from "../components/TextFields.vue";
-import DiagnosisSearch from './DiagnosisSearch.vue';
+import DiagnosisSearch from "./DiagnosisSearch.vue";
 export default {
   components: {
     TextField,
@@ -95,7 +94,6 @@ export default {
   data() {
     return {
       largeTextValue: "",
-      
     };
   },
 };
