@@ -7,7 +7,7 @@
       placeholder="Search Diseases"
     />
 
-    <ul *ngIf="isListVisible">
+    <ul class="search-list" *ngIf="isListVisible">
       <li
         *ngFor="let diagnosis of diagnosisList"
         (click)="handleDiagnosisSelect(diagnosis)"
