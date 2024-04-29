@@ -135,4 +135,16 @@ export default {
   flex: 0 0 calc(33.33% - 10px);
   max-width: calc(33.33% - 10px);
 }
+@media screen and (max-width: 492px) {
+ .diagnosis-search-container input[type="text"]  {
+    width: 300px;
+  }
+}
+
+@media (max-width: 300px) {
+ .diagnosis-search-container input[type="text"] {
+    width: 200px;
+    height: 20px;
+  }
+}
 </style>
