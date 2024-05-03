@@ -1,15 +1,15 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "@firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAll0T-vTbug0eW_SWH20KtYiCIqXYFcrI",
-  authDomain: "emedicalapp-ff3be.firebaseapp.com",
-  projectId: "emedicalapp-ff3be",
-  storageBucket: "emedicalapp-ff3be.appspot.com",
-  messagingSenderId: "837318081990",
-  appId: "1:837318081990:web:96ee712d1694f46f9b46c7",
-  measurementId: "G-NPDTE0STVT",
+  apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
+  authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.VUE_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.VUE_APP_FIREBASE_APP_ID,
+  measurementId: process.env.VUE_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
