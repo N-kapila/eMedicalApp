@@ -7,16 +7,10 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import {getAuth, provideAuth} from '@angular/fire/auth'
 import { provideHttpClient } from '@angular/common/http';
+import { environment } from '../../environment';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAll0T-vTbug0eW_SWH20KtYiCIqXYFcrI",
-  authDomain: "emedicalapp-ff3be.firebaseapp.com", 
-  projectId: "emedicalapp-ff3be",
-  storageBucket: "emedicalapp-ff3be.appspot.com",
-  messagingSenderId: "837318081990",
-  appId: "1:837318081990:web:96ee712d1694f46f9b46c7",
-  measurementId: "G-NPDTE0STVT"
-};
+const firebaseConfig = environment.firebaseConfig;
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
